@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.huangyuwei.myapplication">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".center"
+            android:screenOrientation="portrait" />
+        <activity android:name=".laugh" />
+        <activity android:name=".eat" />
+        <activity android:name=".cure" />
+        <activity android:name=".link" />
+        <activity android:name=".move" />
+        <activity android:name=".mem" />
+        <activity android:name=".talk" />
+        <activity android:name=".ask"></activity>
+    </application>
+
+</manifest>
