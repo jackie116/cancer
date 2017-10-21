@@ -5,287 +5,456 @@
     tools:context="com.example.huangyuwei.myapplication.link_center">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="25dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:background="@drawable/row_shape">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TableRow
-                android:id="@+id/rownorthlabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/row_shape"
-                android:visibility="visible">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/northlabel"
-                        android:layout_width="295dp"
-                        android:layout_height="30dp"
-                        android:layout_span="2"
-                        android:background="@drawable/north_shape"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:scrollHorizontally="false"
-                        android:text="北部"
-                        android:textAlignment="center" />
-
-                </RelativeLayout>
-            </TableRow>
-            <TableRow
-                android:id="@+id/rownorth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/row_shape"
-                android:visibility="visible">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/Namenorth"
-                        android:layout_width="100dp"
-                        android:layout_height="30dp"
-                        android:layout_span="2"
-                        android:background="@drawable/top_shape"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:scrollHorizontally="false"
-                        android:text="電話"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:id="@+id/PhoneNumnorth"
-                        android:layout_width="75dp"
-                        android:layout_height="30dp"
-                        android:layout_toRightOf="@id/Namenorth"
-                        android:background="@drawable/top_shape"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:text="電話"
-                        android:textAlignment="center" />
-
-
-                    <TextView
-                        android:id="@+id/Addressnorth"
-                        android:layout_width="120dp"
-                        android:layout_height="30dp"
-                        android:layout_toRightOf="@id/PhoneNumnorth"
-                        android:background="@drawable/top_shape"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:text="地址"
-                        android:textAlignment="center" />
-
-                </RelativeLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rownorth1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/row_shape"
-                android:visibility="visible">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/Namenorth1"
-                        android:layout_width="100dp"
-                        android:layout_height="75dp"
-                        android:layout_span="2"
-                        android:background="@drawable/cell_shape"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:scrollHorizontally="false"
-                        android:text="三軍總醫院附設民眾診療服務處" />
-
-                    <TextView
-                        android:id="@+id/PhoneNumnorth1"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_toRightOf="@id/Namenorth1"
-                        android:background="@drawable/cell_shape"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:text="(02)8792-3321 分機 10721" />
-
-
-                    <TextView
-                        android:id="@+id/Addressnorth1"
-                        android:layout_width="120dp"
-                        android:layout_height="75dp"
-                        android:layout_toRightOf="@id/PhoneNumnorth1"
-                        android:background="@drawable/cell_shape"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:text="臺北市內湖區成功路二段325號 放射腫瘤部 " />
-
-                </RelativeLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rownorth2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/row_shape"
-                android:visibility="visible">
-            <RelativeLayout
+            <TableLayout
+                android:id="@+id/NorthTable"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/row_shape">
 
-                <TextView
-                    android:id="@+id/Namenorth2"
-                    android:layout_width="100dp"
-                    android:layout_height="75dp"
-                    android:layout_span="2"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textMultiLine"
-                    android:maxLines="5"
-                    android:padding="5dp"
-                    android:scrollHorizontally="false"
-                    android:text="振興醫療財團法人振興醫院" />
+                <TableRow
+                    android:id="@+id/rownorthlabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
 
-                <TextView
-                    android:id="@+id/PhoneNumnorth2"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_toRightOf="@id/Namenorth2"
-                    android:background="@drawable/cell_shape"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
-                    android:maxLines="5"
-                    android:padding="5dp"
-                    android:text="(02)2826-4400 分機 3029" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
+                        <TextView
+                            android:id="@+id/northlabel"
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/north_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="北部"
+                            android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/Addressnorth2"
-                    android:layout_width="120dp"
-                    android:layout_height="75dp"
-                    android:layout_toRightOf="@id/PhoneNumnorth2"
-                    android:background="@drawable/cell_shape"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
-                    android:maxLines="5"
-                    android:padding="5dp"
-                    android:text="臺北市北投區振興街45號 第二醫療大樓地下一樓029診(癌症資源中心)" />
+                    </RelativeLayout>
+                </TableRow>
 
-            </RelativeLayout>/>
-        </TableRow>
-            <TableRow
-                android:id="@+id/row3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TableRow
+                    android:id="@+id/rownorth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-        </TableLayout>
+                        <TextView
+                            android:id="@+id/Namenorth"
+                            android:layout_width="130dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/top_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="單位"
+                            android:textAlignment="center" />
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="25dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
-            android:background="@drawable/cell_shape">
-
-            <TableRow
-                android:id="@+id/rowcentral1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/cell_shape"
-                android:visibility="visible">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/Namecentral1"
-                        android:layout_width="200px"
-                        android:layout_height="100px"
-                        android:layout_span="2"
-                        android:background="@drawable/cell_shape"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:scrollHorizontally="false"
-                        android:text="三軍總醫院附設民眾診療服務處" />
-
-                    <TextView
-                        android:id="@+id/PhoneNumcentral1"
-                        android:layout_width="150px"
-                        android:layout_height="100px"
-                        android:layout_toRightOf="@id/Namecentral1"
-                        android:background="@drawable/cell_shape"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:text="(02)8792-3321 分機 10721" />
+                        <TextView
+                            android:id="@+id/PhoneNumnorth"
+                            android:layout_width="105dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/Namenorth"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="電話"
+                            android:textAlignment="center" />
 
 
-                    <TextView
-                        android:id="@+id/Addresscentral1"
-                        android:layout_width="235px"
-                        android:layout_height="100px"
-                        android:layout_toRightOf="@id/PhoneNumcentral1"
-                        android:background="@drawable/cell_shape"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:padding="5dp"
-                        android:text="臺北市內湖區成功路二段325號 放射腫瘤部 " />
+                        <TextView
+                            android:id="@+id/Addressnorth"
+                            android:layout_width="147dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/PhoneNumnorth"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="地址"
+                            android:textAlignment="center" />
 
-                </RelativeLayout>
-            </TableRow>
+                    </RelativeLayout>
+                </TableRow>
 
-            <TableRow
-                android:id="@+id/rowcentral2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-            <TableRow
-                android:id="@+id/rowcentral3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            </TableLayout>
 
-            <TableRow
+            <TableLayout
+                android:id="@+id/CenterTable"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@drawable/row_shape">
 
-            <TableRow
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="#FFFFFF"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text=""
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowcentrallabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/centrallabel"
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/central_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="中部"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowcentral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/Namecentral"
+                            android:layout_width="130dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/top_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="單位"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/PhoneNumcentral"
+                            android:layout_width="105dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/Namecentral"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="電話"
+                            android:textAlignment="center" />
+
+
+                        <TextView
+                            android:id="@+id/Addresscentral"
+                            android:layout_width="147dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/PhoneNumcentral"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="地址"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+            </TableLayout>
+
+
+            <TableLayout
+                android:id="@+id/SouthTable"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </TableLayout>
-    </LinearLayout>
+                android:layout_height="match_parent"
+                android:background="@drawable/row_shape">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="#FFFFFF"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text=""
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowsouthlabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/southlabel"
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/south_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="南部"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowsouth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/Namesouth"
+                            android:layout_width="130dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/top_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="單位"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/PhoneNumsouth"
+                            android:layout_width="105dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/Namesouth"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="電話"
+                            android:textAlignment="center" />
+
+
+                        <TextView
+                            android:id="@+id/Addresssouth"
+                            android:layout_width="147dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/PhoneNumsouth"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="地址"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+
+            </TableLayout>
+
+
+            <TableLayout
+                android:id="@+id/EastTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/row_shape">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="#FFFFFF"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text=""
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/roweastlabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/eastlabel"
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/east_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="東部與離島"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/roweast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/Nameeast"
+                            android:layout_width="130dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/top_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="單位"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/PhoneNumeast"
+                            android:layout_width="105dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/Nameeast"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="電話"
+                            android:textAlignment="center" />
+
+
+                        <TextView
+                            android:id="@+id/Addresseast"
+                            android:layout_width="147dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/PhoneNumeast"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="地址"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment"
