@@ -45,6 +45,7 @@ public class link extends AppCompatActivity {
                     break;
                 case 2:
                     fragment = new link_resource();
+                    break;
                 case 3:
                     fragment = new link_economic();
                     break;

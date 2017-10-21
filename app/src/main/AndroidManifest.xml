@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,7 +29,8 @@
         <activity android:name=".move" />
         <activity android:name=".mem" />
         <activity android:name=".talk" />
-        <activity android:name=".ask"></activity>
+        <activity android:name=".ask" />
+        <activity android:name=".movie"></activity>
     </application>
 
 </manifest>

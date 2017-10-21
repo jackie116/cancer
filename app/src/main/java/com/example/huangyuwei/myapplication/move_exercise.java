@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-
-public class move_exercise extends Fragment {
+public class move_exercise extends Fragment{
 
 
 
