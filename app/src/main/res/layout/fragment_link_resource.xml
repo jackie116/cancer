@@ -336,6 +336,122 @@
             </TableLayout>
 
 
+            <TableLayout
+                android:id="@+id/HomeTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/row_shape">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="#FFFFFF"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text=""
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowhouselabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/houselabel"
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/east_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="袖套 "
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowhouse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/Namehouse"
+                            android:layout_width="130dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/top_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="單位"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/PhoneNumhouse"
+                            android:layout_width="105dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/Namehouse"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="電話"
+                            android:textAlignment="center" />
+
+
+                        <TextView
+                            android:id="@+id/Addresshouse"
+                            android:layout_width="147dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/PhoneNumhouse"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="地址"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+
+            </TableLayout>
+
+
         </LinearLayout>
     </ScrollView>
 
