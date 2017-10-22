@@ -45,6 +45,7 @@ public class eat extends AppCompatActivity {
                     break;
                 case 2:
                     fragment = new eat_ingredient();
+                    break;
             }
 
             return fragment;

@@ -45,6 +45,7 @@ public class cure extends AppCompatActivity {
                     break;
                 case 2:
                     fragment = new cure_china();
+                    break;
                 case 3:
                     fragment = new cure_transfer();
                     break;
@@ -53,6 +54,7 @@ public class cure extends AppCompatActivity {
                     break;
                 case 5:
                     fragment = new cure_prognosis();
+                    break;
             }
 
             return fragment;

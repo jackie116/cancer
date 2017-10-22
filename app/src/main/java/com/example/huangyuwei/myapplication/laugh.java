@@ -45,6 +45,7 @@ public class laugh extends AppCompatActivity {
                     break;
                 case 2:
                     fragment = new laugh_night();
+                    break;
                 case 3:
                     fragment = new laugh_family();
                     break;

@@ -45,6 +45,7 @@ public class talk extends AppCompatActivity {
                     break;
                 case 2:
                     fragment = new talk_group();
+                    break;
 
             }
 
