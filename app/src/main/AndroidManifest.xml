@@ -30,7 +30,13 @@
         <activity android:name=".mem" />
         <activity android:name=".talk" />
         <activity android:name=".ask" />
-        <activity android:name=".movie"></activity>
+        <activity
+            android:name=".move_exercise_movie"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".move_rehab_movie"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

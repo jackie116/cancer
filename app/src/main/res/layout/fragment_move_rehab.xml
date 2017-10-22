@@ -11,5 +11,5 @@
         android:id="@+id/btn_2movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ＧＧＵ" />
+        android:text="影片連結" />
 </FrameLayout>

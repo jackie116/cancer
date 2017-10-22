@@ -5,10 +5,10 @@
     tools:context="com.example.huangyuwei.myapplication.move_exercise">
 
     <!-- TODO: Update blank fragment layout -->
-
-
-    <VideoView
-        android:id="@+id/videoView"
+    <Button
+        android:id="@+id/btn_2movie"
         android:layout_width="wrap_content"
-        android:layout_height="230dp" />
+        android:layout_height="wrap_content"
+        android:text="影片列表" />
+
 </FrameLayout>
