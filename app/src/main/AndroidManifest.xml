@@ -34,11 +34,21 @@
             android:name=".move_exercise_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".move_rehab_movie"
-            android:configChanges="orientation|screenSize"></activity>
         <activity
-            android:name=".Detail"
-            android:label="@string/title_activity_detail"
+            android:name=".move_rehab_movie"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".laugh_music_movie"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".laugh_night_movie"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".talk_group_movie"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".talk_share_movie"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -45,6 +45,7 @@ public class mem extends AppCompatActivity {
                     break;
                 case 2:
                     fragment = new mem_exercise();
+                    break;
                 case 3:
                     fragment = new mem_body();
                     break;

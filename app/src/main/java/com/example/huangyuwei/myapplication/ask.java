@@ -45,7 +45,7 @@ public class ask extends AppCompatActivity {
                     break;
                 case 2:
                     fragment = new ask_faq();
-
+                    break;
             }
 
             return fragment;
