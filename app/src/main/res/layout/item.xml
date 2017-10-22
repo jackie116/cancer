@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:background="@drawable/row_shape"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_centerVertical="true"
+        android:id="@+id/info_img"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/flower"
+        android:layout_width="150dp"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:id="@+id/info_phonnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/info_img"
+        android:text="(02)2392-4115" />
+    <TextView
+        android:id="@+id/info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/info_phonnum"
+        android:text="台北市中正區杭州南路一段六巷7號一樓" />
+</RelativeLayout>
