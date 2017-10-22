@@ -31,6 +31,11 @@
         <activity android:name=".talk" />
         <activity android:name=".ask" />
         <activity
+            android:name=".move_exercise_movie"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".move_rehab_movie"
+            android:configChanges="orientation|screenSize"
             android:name=".Detail"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
