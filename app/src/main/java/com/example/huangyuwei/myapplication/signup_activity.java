@@ -2,16 +2,18 @@ package com.example.huangyuwei.myapplication;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -23,47 +25,84 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class MainActivity extends AppCompatActivity {
-    private String TAG="MainActivity";
+public class signup_activity extends AppCompatActivity {
+    private String TAG = "signup_activity";
+
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
-    private EditText etEmail;
-    private EditText etPassword;
-    private Button btn_signup_main;
+
+    private EditText edt_email;
+    private EditText edt_password;
+    private EditText edt_confirm;
+    private Button btn_signup;
+
+    private boolean email_valid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
+        edt_email = (EditText)findViewById(R.id.email);
+        edt_password = (EditText)findViewById(R.id.password);
+        edt_confirm = (EditText)findViewById(R.id.confirm);
+        btn_signup = (Button)findViewById(R.id.btn_signup);
 
-        // Get Reference to variables
-        etEmail = (EditText) findViewById(R.id.email);
-        etPassword = (EditText) findViewById(R.id.password);
-        btn_signup_main = (Button)findViewById(R.id.btn_signup_main);
-        btn_signup_main.setOnClickListener(new View.OnClickListener() {
+        btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,signup_activity.class);
-                startActivity(intent);
+
+                String email = edt_email.getText().toString().trim();
+                String password = edt_password.getText().toString().trim();
+                String confirm = edt_confirm.getText().toString().trim();
+
+                boolean correct = checkInput(email, password, confirm);
+
+                if(!correct&&email_valid){
+                    edt_password.setText("");
+                    edt_confirm.setText("");
+                }
+                else if(!correct&&!email_valid){
+                    edt_email.setText("");
+                    edt_password.setText("");
+                    edt_confirm.setText("");
+                }
+                else{
+                    edt_email.setText("");
+                    edt_password.setText("");
+                    edt_confirm.setText("");
+                    new AsyncLSignup().execute(email, password);
+
+                }
             }
         });
 
     }
+    boolean checkInput(String email, String password, String confirm){
+        if (TextUtils.isEmpty(email)) {
+            email_valid=false;
+            Toast.makeText(getApplication(), "Email不可為空", Toast.LENGTH_SHORT).show();
+        }
+        else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            email_valid=false;
+            Toast.makeText(getApplication(), "Email格式錯誤", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            email_valid=true;
+            if (TextUtils.isEmpty(password)||TextUtils.isEmpty(confirm)) {
+                Toast.makeText(getApplication(), "密碼不可為空", Toast.LENGTH_SHORT).show();
+            } else if (!password.equals(confirm)) {
+                Toast.makeText(getApplication(), "密碼不符合", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplication(), "登入中...", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        }
 
-    // Triggers when LOGIN Button clicked
-    public void checkLogin(View arg0) {
-
-        // Get text from email and passord field
-        final String email = etEmail.getText().toString();
-        final String password = etPassword.getText().toString();
-
-        // Initialize  AsyncLogin() class with email and password
-        new AsyncLogin().execute(email,password);
-
+        return false;
     }
-
-    private class AsyncLogin extends AsyncTask<String, String, String>
+    private class AsyncLSignup extends AsyncTask<String, String, String>
     {
-        ProgressDialog pdLoading = new ProgressDialog(MainActivity.this);
+        ProgressDialog pdLoading = new ProgressDialog(signup_activity.this);
         HttpURLConnection conn;
         URL url = null;
 
@@ -80,9 +119,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-
+                Log.i(TAG, "123123"+"doinbackground");
                 // Enter URL address where your php file resides
-                url = new URL("http://13.115.90.58/login.inc.php");
+                url = new URL("http://13.115.90.58/signup.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -102,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("username", params[0])
+                        .appendQueryParameter("email", params[0])
                         .appendQueryParameter("password", params[1]);
                 String query = builder.build().getEncodedQuery();
 
@@ -128,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
-
+                    Log.i(TAG, "123123"+"HTTP_OK");
                     // Read data sent from server
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
@@ -144,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }else{
 
-                    return("unsuccessful");
+                    return("unsuccessful1");
                 }
 
             } catch (IOException e) {
@@ -159,35 +198,15 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-
             //this method will be running on UI thread
-            Log.i(TAG, "123123"+result);
-
             pdLoading.dismiss();
+            Log.i(TAG, "123123  "+result);
 
-            if(result.equalsIgnoreCase("true"))
-            {
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
+            Intent intent = new Intent(signup_activity.this,MainActivity.class);
+            startActivity(intent);
+            signup_activity.this.finish();
 
-                Intent intent = new Intent(MainActivity.this,center.class);
-                startActivity(intent);
-                MainActivity.this.finish();
-
-            }else if (result.equalsIgnoreCase("false")){
-
-                // If username and password does not match display a error message
-                Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
-
-            } else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-
-                Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
-
-            }
         }
 
     }
 }
-
-

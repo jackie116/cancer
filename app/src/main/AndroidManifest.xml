@@ -38,18 +38,23 @@
             android:name=".move_rehab_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".laugh_music_movie"
+        <activity
+            android:name=".laugh_music_movie"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".laugh_night_movie"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".laugh_night_movie"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".talk_group_movie"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".talk_group_movie"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".talk_share_movie"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".talk_share_movie"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".signup_activity"></activity>
     </application>
 
 </manifest>
