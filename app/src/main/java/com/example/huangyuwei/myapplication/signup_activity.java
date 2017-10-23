@@ -93,7 +93,7 @@ public class signup_activity extends AppCompatActivity {
             } else if (!password.equals(confirm)) {
                 Toast.makeText(getApplication(), "密碼不符合", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getApplication(), "登入中...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), "註冊成功", Toast.LENGTH_SHORT).show();
                 return true;
             }
         }
