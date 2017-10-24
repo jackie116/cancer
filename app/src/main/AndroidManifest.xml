@@ -54,7 +54,8 @@
             android:name=".talk_share_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".signup_activity"></activity>
+        <activity android:name=".signup_activity" />
+        <activity android:name=".setting"></activity>
     </application>
 
 </manifest>
