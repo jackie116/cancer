@@ -1,10 +1,14 @@
 package com.example.huangyuwei.myapplication;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class center extends AppCompatActivity {
     ImageButton Btn_ask;
@@ -99,5 +103,35 @@ public class center extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.setting, menu);   //https://cutler.github.io/android-B03/
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch(id){
+            case R.id.item_setting:
+                Toast.makeText(this, "載入個人頁面", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(center.this  ,setting.class);
+                startActivity(intent);
+                break;
+            case R.id.item_about:
+                String about="黃鈺威的APP";
+                Toast.makeText(this, "載入關於", Toast.LENGTH_SHORT).show();
+                AlertDialog dialog = new AlertDialog.Builder(center.this)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .setTitle("關於")
+                        .setMessage(about)
+                        .create();
+                dialog.show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
