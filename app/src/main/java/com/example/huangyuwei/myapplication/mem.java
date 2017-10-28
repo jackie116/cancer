@@ -38,7 +38,7 @@ public class mem extends AppCompatActivity {
             // 根據目前tab標籤頁的位置，傳回對應的fragment物件
             switch (position) {
                 case 0:
-                    fragment = new mem_food();
+                    fragment = new mem_calendar();
                     break;
                 case 1:
                     fragment = new mem_mod();
@@ -67,7 +67,7 @@ public class mem extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "飲食";
+                    return "日曆";
                 case 1:
                     return "心情";
                 case 2:
