@@ -6,8 +6,5 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="370dp" />
+
 </FrameLayout>
