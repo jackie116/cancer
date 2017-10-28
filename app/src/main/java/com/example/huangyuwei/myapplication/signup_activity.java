@@ -1,6 +1,7 @@
 package com.example.huangyuwei.myapplication;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -9,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -24,6 +28,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class signup_activity extends AppCompatActivity {
     private String TAG = "signup_activity";
@@ -31,6 +38,7 @@ public class signup_activity extends AppCompatActivity {
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
 
+    private LinearLayout linear_tab;
     private EditText edt_email;
     private EditText edt_password;
     private EditText edt_confirm;
@@ -42,11 +50,20 @@ public class signup_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        linear_tab = (LinearLayout)findViewById(R.id.linear_tab_signup);
         edt_email = (EditText)findViewById(R.id.email);
         edt_password = (EditText)findViewById(R.id.password);
         edt_confirm = (EditText)findViewById(R.id.confirm);
         btn_signup = (Button)findViewById(R.id.btn_signup);
 
+        linear_tab.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+                return false;
+            }
+        });
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +87,10 @@ public class signup_activity extends AppCompatActivity {
                     edt_email.setText("");
                     edt_password.setText("");
                     edt_confirm.setText("");
-                    new AsyncLSignup().execute(email, password);
+                    SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                    String nowDateTime = format.format(new Date(System.currentTimeMillis()));
+                    Log.d(TAG, "123  "+nowDateTime);
+                    new AsyncLSignup().execute(email, password, nowDateTime);
 
                 }
             }
@@ -145,7 +165,8 @@ public class signup_activity extends AppCompatActivity {
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("email", params[0])
-                        .appendQueryParameter("password", params[1]);
+                        .appendQueryParameter("password", params[1])
+                        .appendQueryParameter("jointime", params[2]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data

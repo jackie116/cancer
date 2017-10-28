@@ -1,6 +1,7 @@
 package com.example.huangyuwei.myapplication;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class center extends AppCompatActivity {
+    private static center mInstance = null;
+    private static Context context=null;
+
     ImageButton Btn_ask;
     ImageButton Btn_link;
     ImageButton Btn_mem;
@@ -23,6 +27,8 @@ public class center extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_center);
+        context=this;
+        mInstance=this;
 
         Btn_laugh= (ImageButton) findViewById(R.id.Btn_laugh);
         Btn_laugh.setOnClickListener(new View.OnClickListener() {
@@ -133,5 +139,12 @@ public class center extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static center getInstance(){
+        return mInstance;
+    }
+    public static Context getContext(){
+        return context;
     }
 }
