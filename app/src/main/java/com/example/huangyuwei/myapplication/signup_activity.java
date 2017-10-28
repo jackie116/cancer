@@ -90,7 +90,10 @@ public class signup_activity extends AppCompatActivity {
             email_valid=true;
             if (TextUtils.isEmpty(password)||TextUtils.isEmpty(confirm)) {
                 Toast.makeText(getApplication(), "密碼不可為空", Toast.LENGTH_SHORT).show();
-            } else if (!password.equals(confirm)) {
+            }else if(password.length()>12||password.length()<6){
+                Toast.makeText(getApplication(), "密碼長度不符", Toast.LENGTH_SHORT).show();
+            }
+            else if (!password.equals(confirm)) {
                 Toast.makeText(getApplication(), "密碼不符合", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getApplication(), "註冊成功", Toast.LENGTH_SHORT).show();

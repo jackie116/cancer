@@ -7,31 +7,8 @@
     tools:context="com.example.huangyuwei.myapplication.center">
 
     <ImageButton
-        android:id="@+id/Btn_laugh"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <TextView
-        android:id="@+id/text_laugh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="笑吧"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_laugh"
-        android:layout_marginLeft="178dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <ImageButton
         android:id="@+id/Btn_cure"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
@@ -41,23 +18,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.303"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@drawable/cure"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.029" />
 
-    <TextView
-        android:id="@+id/text_cure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="治吧"
-        android:layout_marginLeft="48dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="-7dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_cure" />
-
     <ImageButton
         android:id="@+id/Btn_move"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
@@ -67,26 +35,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.303"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@drawable/move"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintHorizontal_bias="0.97" />
 
-    <TextView
-        android:id="@+id/text_move"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="動吧"
-        android:layout_marginLeft="304dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_move" />
-
     <ImageButton
         android:id="@+id/Btn_eat"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@drawable/eat"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
@@ -97,21 +56,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text_eat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="吃吧"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_eat"
-        android:layout_marginLeft="178dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
     <ImageButton
         android:id="@+id/Btn_talk"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@drawable/talk"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
@@ -123,44 +73,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.029" />
 
-    <TextView
-        android:id="@+id/text_talk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="說吧"
-        android:layout_marginLeft="48dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_talk" />
-
     <ImageButton
         android:id="@+id/Btn_ask"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_move"
+        app:srcCompat="@drawable/ask"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.221"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.968"
-        app:layout_constraintLeft_toLeftOf="@+id/Btn_talk" />
-
-    <TextView
-        android:id="@+id/text_ask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="問吧"
-        android:layout_marginLeft="304dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_ask" />
+        app:layout_constraintLeft_toLeftOf="@+id/Btn_talk"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.617" />
 
     <ImageButton
         android:id="@+id/Btn_mem"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
@@ -173,23 +105,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.924"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <TextView
-        android:id="@+id/text_mem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="記吧"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_mem"
-        android:layout_marginLeft="114dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:srcCompat="@drawable/mem" />
 
     <ImageButton
         android:id="@+id/Btn_link"
+        android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@drawable/link"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -201,14 +124,20 @@
         app:layout_constraintHorizontal_bias="0.731"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <TextView
-        android:id="@+id/text_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="連吧"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_link"
-        android:layout_marginLeft="240dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+    <ImageButton
+        android:id="@+id/Btn_laugh"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/laugh"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.05" />
 
 </android.support.constraint.ConstraintLayout>
