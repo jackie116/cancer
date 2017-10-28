@@ -1,6 +1,7 @@
 package com.example.huangyuwei.myapplication;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -8,9 +9,13 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,23 +27,46 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG="MainActivity";
+    private static Context context;
+    private UserData userdata;
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
+    private SharedPreferences settings;
+    private static final String data = "DATA";
+    private static final String account_data = "ACCOUNT";
+    private static final String password_data = "PASSWORD";
+    private LinearLayout linear_tab;
     private EditText etEmail;
     private EditText etPassword;
+    private String email;
+    private String password;
     private Button btn_signup_main;
+    private CheckBox autoLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        context = this;
         // Get Reference to variables
+        linear_tab = (LinearLayout)findViewById(R.id.linear_tab_main);
         etEmail = (EditText) findViewById(R.id.email);
         etPassword = (EditText) findViewById(R.id.password);
         btn_signup_main = (Button)findViewById(R.id.btn_signup_main);
+        autoLogin = (CheckBox)findViewById(R.id.autoLogin);
+        linear_tab.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+                return false;
+            }
+        });
         btn_signup_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,15 +74,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        if(UserData.readData(context)){
+            Intent intent = new Intent(MainActivity.this,center.class);
+            startActivity(intent);
+            MainActivity.this.finish();
+        }
+
 
     }
+    public static Context getContext(){
+        return context;
+    }
+
 
     // Triggers when LOGIN Button clicked
     public void checkLogin(View arg0) {
 
         // Get text from email and passord field
-        final String email = etEmail.getText().toString();
-        final String password = etPassword.getText().toString();
+        email = etEmail.getText().toString();
+        password = etPassword.getText().toString();
 
         // Initialize  AsyncLogin() class with email and password
         new AsyncLogin().execute(email,password);
@@ -170,7 +208,9 @@ public class MainActivity extends AppCompatActivity {
                 /* Here launching another activity when login successful. If you persist login state
                 use sharedPreferences of Android. and logout button to clear sharedPreferences.
                  */
-
+                if(autoLogin.isChecked()) {
+                    UserData.saveData(context, email, password);
+                }
                 Intent intent = new Intent(MainActivity.this,center.class);
                 startActivity(intent);
                 MainActivity.this.finish();
