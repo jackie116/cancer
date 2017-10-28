@@ -7,15 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class setting extends AppCompatActivity {
-    private final String TAG = "setting";
+public class user_profile extends AppCompatActivity {
+    private final String TAG = "user_profile";
     private static Context context;
     private Button btn_logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_user_profile);
         context=this;
         btn_logout = (Button)findViewById(R.id.btn_logout);
 
@@ -23,10 +23,10 @@ public class setting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 UserData.getSharedPreferences(context).edit().clear().apply();
-                Intent intent = new Intent(setting.this,MainActivity.class);
+                Intent intent = new Intent(user_profile.this,MainActivity.class);
                 startActivity(intent);
                 center.getInstance().finish();
-                setting.this.finish();
+                user_profile.this.finish();
             }
         });
     }
