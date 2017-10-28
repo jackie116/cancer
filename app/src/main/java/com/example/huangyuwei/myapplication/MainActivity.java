@@ -27,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
     private String TAG="MainActivity";
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
+
     private EditText etEmail;
     private EditText etPassword;
+    private String email;
+    private String password;
     private Button btn_signup_main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +50,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
 
     // Triggers when LOGIN Button clicked
     public void checkLogin(View arg0) {
 
         // Get text from email and passord field
-        final String email = etEmail.getText().toString();
-        final String password = etPassword.getText().toString();
+        email = etEmail.getText().toString();
+        password = etPassword.getText().toString();
 
         // Initialize  AsyncLogin() class with email and password
         new AsyncLogin().execute(email,password);
