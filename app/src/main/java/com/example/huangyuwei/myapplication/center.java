@@ -124,7 +124,7 @@ public class center extends AppCompatActivity {
             case R.id.item_setting:
                 Toast.makeText(this, "載入個人頁面", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.setClass(center.this  ,setting.class);
+                intent.setClass(center.this  ,user_profile.class);
                 startActivity(intent);
                 break;
             case R.id.item_about:
