@@ -11,7 +11,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".welcome"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,12 +22,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".center"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".laugh"
-            android:label="笑吧"
-            />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".laugh"
+            android:label="笑吧" />
         <activity android:name=".eat" />
         <activity android:name=".cure" />
         <activity android:name=".link" />
@@ -57,7 +62,8 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".signup_activity" />
-        <activity android:name=".user_profile"></activity>
+        <activity android:name=".user_profile" />
+
     </application>
 
 </manifest>
