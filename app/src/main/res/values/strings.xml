@@ -9,4 +9,25 @@
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
     <string name="title_activity_detail">Detail</string>
+    <string-array name="image_ids">
+        <item>@drawable/flower</item>
+        <item>@drawable/flower</item>
+        <item>@drawable/flower</item>
+        <item>@drawable/test</item>
+        <item>@drawable/test</item>
+        <item>@drawable/test</item>
+        <item>@drawable/flower</item>
+        <item>@drawable/test</item>
+        <item>@drawable/test</item>
+        <item>@drawable/flower</item>
+        <item>@drawable/flower</item>
+        <item>@drawable/flower</item>
+        <item>@drawable/test</item>
+        <item>@drawable/test</item>
+        <item>@drawable/test</item>
+        <item>@drawable/flower</item>
+        <item>@drawable/test</item>
+        <item>@drawable/test</item>
+    </string-array>
+    <string name="title_activity_details">DetailsActivity</string>
 </resources>

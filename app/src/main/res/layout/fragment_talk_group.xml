@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.huangyuwei.myapplication.talk_group">
+    tools:context="com.example.huangyuwei.myapplication.talk.talk_group">
 
     <!-- TODO: Update blank fragment layout -->
     <Button
