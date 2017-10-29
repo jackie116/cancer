@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">黃昱崴</string>
+    <string name="app_name">e粉紅護照</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -9,4 +9,5 @@
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
     <string name="title_activity_detail">Detail</string>
+    
 </resources>

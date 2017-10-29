@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.huangyuwei.myapplication.link_foundation">
+    tools:context="com.example.huangyuwei.myapplication.link.link_foundation">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
@@ -18,8 +18,4 @@
     </RelativeLayout>
 
 
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </FrameLayout>

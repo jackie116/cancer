@@ -2,12 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.huangyuwei.myapplication.mem_food">
+    tools:context="com.example.huangyuwei.myapplication.mem.mem_food">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#f0f0f0">
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:columnWidth="100dp"
+            android:drawSelectorOnTop="true"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="5dp"
+            android:focusable="true"
+            android:clickable="true"/>
+
+    </RelativeLayout>
 
 </FrameLayout>

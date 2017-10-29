@@ -1,12 +1,29 @@
 package com.example.huangyuwei.myapplication;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.example.huangyuwei.myapplication.ask.ask;
+import com.example.huangyuwei.myapplication.cure.cure;
+import com.example.huangyuwei.myapplication.eat.eat;
+import com.example.huangyuwei.myapplication.laugh.laugh;
+import com.example.huangyuwei.myapplication.link.link;
+import com.example.huangyuwei.myapplication.mem.mem;
+import com.example.huangyuwei.myapplication.move.move;
+import com.example.huangyuwei.myapplication.talk.talk;
 
 public class center extends AppCompatActivity {
+    private static center mInstance = null;
+    private static Context context=null;
+
     ImageButton Btn_ask;
     ImageButton Btn_link;
     ImageButton Btn_mem;
@@ -19,6 +36,8 @@ public class center extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_center);
+        context=this;
+        mInstance=this;
 
         Btn_laugh= (ImageButton) findViewById(R.id.Btn_laugh);
         Btn_laugh.setOnClickListener(new View.OnClickListener() {
@@ -99,5 +118,42 @@ public class center extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.setting, menu);   //https://cutler.github.io/android-B03/
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch(id){
+            case R.id.item_setting:
+                Toast.makeText(this, "載入個人頁面", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(center.this  ,user_profile.class);
+                startActivity(intent);
+                break;
+            case R.id.item_about:
+                String about="黃昱崴的APP";
+                Toast.makeText(this, "載入關於", Toast.LENGTH_SHORT).show();
+                AlertDialog dialog = new AlertDialog.Builder(center.this)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .setTitle("關於")
+                        .setMessage(about)
+                        .create();
+                dialog.show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public static center getInstance(){
+        return mInstance;
+    }
+    public static Context getContext(){
+        return context;
     }
 }
