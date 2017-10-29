@@ -128,7 +128,7 @@ public class center extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.item_about:
-                String about="黃鈺威的APP";
+                String about="黃昱崴的APP";
                 Toast.makeText(this, "載入關於", Toast.LENGTH_SHORT).show();
                 AlertDialog dialog = new AlertDialog.Builder(center.this)
                         .setPositiveButton(android.R.string.ok, null)

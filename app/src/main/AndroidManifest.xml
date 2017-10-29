@@ -7,9 +7,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_login"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -21,8 +20,11 @@
         </activity>
         <activity
             android:name=".center"
-            android:screenOrientation="portrait" />
-        <activity android:name=".laugh" />
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".laugh"
+            android:label="笑吧"
+            />
         <activity android:name=".eat" />
         <activity android:name=".cure" />
         <activity android:name=".link" />

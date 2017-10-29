@@ -55,7 +55,7 @@ public class signup_activity extends AppCompatActivity {
         edt_password = (EditText)findViewById(R.id.password);
         edt_confirm = (EditText)findViewById(R.id.confirm);
         btn_signup = (Button)findViewById(R.id.btn_signup);
-
+        //按螢幕縮鍵盤
         linear_tab.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
