@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.example.huangyuwei.myapplication.CameraActivity;
 import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.adapter.GridViewAdapter;
 import com.example.huangyuwei.myapplication.adapter.ImageItem;
@@ -33,11 +34,8 @@ import java.util.ArrayList;
 
 public class mem_food extends Fragment {
     private GridView gridView;
-    private GridViewAdapter gridAdapter;
-    private static Uri[] mUrls = null;
-    private static String[] strUrls = null;
-    private String[] mNames = null;
-
+    public GridViewAdapter gridAdapter;
+    Button photo_eat;
     public mem_food() {
         // Required empty public constructor
     }
@@ -54,14 +52,7 @@ public class mem_food extends Fragment {
     private ArrayList<ImageItem> getData() {
         final ArrayList<ImageItem> imageItems = new ArrayList<>();
         // It have to be matched with the directory in SDCard
-        String ExternalStorageDirectoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath() + "/Stitcher/";
-
-//        static String ImgRecordpath = Environment.getExternalStorageDirectory().getPath();
-//        static String appPath = "Android/data/studio.bachelor.huginn";
-//        String thumbnailDir = ImgRecordpath + "/" + appPath + "/thumbnails/";
-//        String anchorIMGDir = anchorDir;
-//        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath(), "/Drone Album/");
-
+        String ExternalStorageDirectoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath() + "/Cancer/";
         String targetPath = ExternalStorageDirectoryPath;
         File targetDirector = new File(targetPath);
 
@@ -103,6 +94,16 @@ public class mem_food extends Fragment {
 
             }
         });
+        photo_eat= (Button)getView().findViewById(R.id.photo_eat);
+        photo_eat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity() , CameraActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -111,11 +112,11 @@ public class mem_food extends Fragment {
         Bitmap bm = null;
         // First decode with inJustDecodeBounds=true to check dimensions
         final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(path, options);
+        //options.inJustDecodeBounds = true;
+        //BitmapFactory.decodeFile(path, options);
 
         // Calculate inSampleSize
-        options.inSampleSize = calculateInSampleSize(options, 220, 220);
+        //options.inSampleSize = calculateInSampleSize(options, );
 
         // Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;

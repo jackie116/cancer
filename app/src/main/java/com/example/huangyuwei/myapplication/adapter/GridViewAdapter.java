@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +50,7 @@ public class GridViewAdapter extends ArrayAdapter {
 
         ImageItem item = data.get(position);
         holder.imageTitle.setText(item.getTitle());
-        holder.image.setImageBitmap(decodeURI(item.getImage()));
+         holder.image.setImageBitmap(decodeURI(item.getImage()));
         return row;
     }
 
@@ -94,6 +96,7 @@ public class GridViewAdapter extends ArrayAdapter {
 
         return inSampleSize;
     }
+
 
 }
 

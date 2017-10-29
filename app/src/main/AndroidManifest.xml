@@ -4,18 +4,20 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_login"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".welcome"
+        <activity
+            android:name=".welcome"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,8 +30,9 @@
         <activity
             android:name=".center"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".laugh.laugh" android:label="笑吧" />
+        <activity
+            android:name=".laugh.laugh"
+            android:label="笑吧" />
         <activity android:name=".eat.eat" />
         <activity android:name=".cure.cure" />
         <activity android:name=".link.link" />
@@ -37,7 +40,6 @@
         <activity android:name=".mem.mem" />
         <activity android:name=".talk.talk" />
         <activity android:name=".ask.ask" />
-
         <activity
             android:name=".move.move_exercise_movie"
             android:configChanges="orientation|screenSize"
@@ -64,7 +66,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".signup_activity" />
         <activity android:name=".user_profile" />
-        <activity android:name=".user_modify"></activity>
+        <activity android:name=".user_modify" />
+        <activity
+            android:name=".CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
