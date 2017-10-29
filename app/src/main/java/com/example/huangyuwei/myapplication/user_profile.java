@@ -54,6 +54,7 @@ public class user_profile extends AppCompatActivity {
         context=this;
         userProfile = new UserProfile();
         btn_logout = (Button)findViewById(R.id.btn_logout);
+        btn_modify = (Button) findViewById(R.id.btn_modify);
         text_email = (TextView)findViewById(R.id.text_email_show);
         text_name = (TextView)findViewById(R.id.text_name_show);
         text_birth = (TextView)findViewById(R.id.text_birth_show);
@@ -74,7 +75,9 @@ public class user_profile extends AppCompatActivity {
         btn_modify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(user_profile.this,user_modify.class);
+                startActivity(intent);
+                center.getInstance().finish();
             }
         });
 
