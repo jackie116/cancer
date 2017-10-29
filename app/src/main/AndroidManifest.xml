@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_login"
@@ -27,38 +28,38 @@
         <activity
             android:name=".center"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".laugh.laugh" android:label="笑吧" />
+        <activity android:name=".eat.eat" />
+        <activity android:name=".cure.cure" />
+        <activity android:name=".link.link" />
+        <activity android:name=".move.move" />
+        <activity android:name=".mem.mem" />
+        <activity android:name=".talk.talk" />
+        <activity android:name=".ask.ask" />
+
         <activity
-            android:name=".laugh"
-            android:label="笑吧" />
-        <activity android:name=".eat" />
-        <activity android:name=".cure" />
-        <activity android:name=".link" />
-        <activity android:name=".move" />
-        <activity android:name=".mem" />
-        <activity android:name=".talk" />
-        <activity android:name=".ask" />
-        <activity
-            android:name=".move_exercise_movie"
+            android:name=".move.move_exercise_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".move_rehab_movie"
+            android:name=".move.move_rehab_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".laugh_music_movie"
+            android:name=".laugh.laugh_music_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".laugh_night_movie"
+            android:name=".laugh.laugh_night_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".talk_group_movie"
+            android:name=".talk.talk_group_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".talk_share_movie"
+            android:name=".talk.talk_share_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".signup_activity" />

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.huangyuwei.myapplication.laugh_night">
+    tools:context="com.example.huangyuwei.myapplication.laugh.laugh_night">
 
     <!-- TODO: Update blank fragment layout -->
     <Button
