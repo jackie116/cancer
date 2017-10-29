@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -39,7 +40,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class link_resource extends Fragment {
+public class link_resource extends AppCompatActivity {
 
     class Center{
         String name;
@@ -63,23 +64,17 @@ public class link_resource extends Fragment {
     }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_link_resource, container, false);
-
-    }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        new getData().execute();
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_link_resource);
+        new getData(this).execute();
     }
 
 
-    private void addTableRow(TableLayout tl,final String name,final String phone,final String address,final String url,final String info){
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+    private void addTableRow(final Context context, TableLayout tl, final String name, final String phone, final String address, final String url, final String info){
+        LayoutInflater inflater = this.getLayoutInflater();
         TableRow tr = (TableRow)inflater.inflate(R.layout.table_row, tl, false);
 
         // Add First Column
@@ -107,7 +102,7 @@ public class link_resource extends Fragment {
                 else
                     s = new SpannableString("電話：" + phone + "\n地址：" + address);
                     Linkify.addLinks(s, Linkify.WEB_URLS);
-                    final AlertDialog d = new AlertDialog.Builder(getActivity())
+                    final AlertDialog d = new AlertDialog.Builder(context)
                             .setPositiveButton(android.R.string.ok, null)
                             .setMessage( s )
                             .setTitle(name)
@@ -126,18 +121,29 @@ public class link_resource extends Fragment {
 
     private class getData extends AsyncTask<String, String, String>
     {
-        ProgressDialog pdLoading = new ProgressDialog(getActivity());
         HttpURLConnection conn;
         URL url = null;
+        ProgressDialog pDialog;
+        private Context mcontext;
+
+        getData(Context context){
+            this.mcontext=context;
+        }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    pDialog = new ProgressDialog(mcontext);
+                    pDialog.setMessage("Loading..");
+                    pDialog.setIndeterminate(false);
+                    pDialog.setCancelable(true);
+                    pDialog.show();
 
-            //this method will be running on UI thread
-            pdLoading.setMessage("\tLoading...");
-            pdLoading.setCancelable(false);
-            pdLoading.show();
+                }
+            });
 
         }
         @Override
@@ -224,26 +230,26 @@ public class link_resource extends Fragment {
 
             //this method will be running on UI thread
 
-            pdLoading.dismiss();
+            pDialog.dismiss();
             data = result;
             JSONanalyse();
 
 
-            TableLayout ll = (TableLayout) getView().findViewById(R.id.WigTable);
-            TableLayout cl = (TableLayout) getView().findViewById(R.id.BraTable);
-            TableLayout sl = (TableLayout) getView().findViewById(R.id.CuffTable);
-            TableLayout hl = (TableLayout) getView().findViewById(R.id.HomeTable);
+            TableLayout ll = (TableLayout) findViewById(R.id.WigTable);
+            TableLayout cl = (TableLayout) findViewById(R.id.BraTable);
+            TableLayout sl = (TableLayout) findViewById(R.id.CuffTable);
+            TableLayout hl = (TableLayout) findViewById(R.id.HomeTable);
             for (int i = 0; i <wig.size(); i++)
-                addTableRow(ll,wig.get(i).name,wig.get(i).phone,wig.get(i).address,wig.get(i).url,wig.get(i).info);
+                addTableRow(mcontext,ll,wig.get(i).name,wig.get(i).phone,wig.get(i).address,wig.get(i).url,wig.get(i).info);
 
             for (int i = 0; i <bra.size(); i++)
-                addTableRow(cl,bra.get(i).name,bra.get(i).phone,bra.get(i).address,bra.get(i).url,bra.get(i).info);
+                addTableRow(mcontext,cl,bra.get(i).name,bra.get(i).phone,bra.get(i).address,bra.get(i).url,bra.get(i).info);
 
             for (int i = 0; i < cuff.size(); i++)
-                addTableRow(sl,cuff.get(i).name,cuff.get(i).phone,cuff.get(i).address,cuff.get(i).url,cuff.get(i).info);
+                addTableRow(mcontext,sl,cuff.get(i).name,cuff.get(i).phone,cuff.get(i).address,cuff.get(i).url,cuff.get(i).info);
 
             for (int i = 0; i < home.size(); i++)
-                addTableRow(hl,home.get(i).name,home.get(i).phone,home.get(i).address,home.get(i).url,home.get(i).info);
+                addTableRow(mcontext,hl,home.get(i).name,home.get(i).phone,home.get(i).address,home.get(i).url,home.get(i).info);
 
 
         }

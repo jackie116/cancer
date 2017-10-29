@@ -1,6 +1,7 @@
 package com.example.huangyuwei.myapplication.link;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +40,7 @@ import java.util.ArrayList;
 
 
 
-public class link_center extends Fragment {
+public class link_center extends AppCompatActivity {
     class Center{
         String name;
         String phone;
@@ -59,16 +62,10 @@ public class link_center extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_link_center, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        new getData().execute();
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_link_center);
+        new getData(this).execute();
 
     }
 
@@ -154,7 +151,7 @@ public class link_center extends Fragment {
 
     private void addTableRow(TableLayout tl, String name, String phone, String address){
 
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        LayoutInflater inflater = this.getLayoutInflater();
         TableRow tr = (TableRow)inflater.inflate(R.layout.table_row, tl, false);
 
         // Add First Column
@@ -173,18 +170,30 @@ public class link_center extends Fragment {
 
     private class getData extends AsyncTask<String, String, String>
     {
-        ProgressDialog pdLoading = new ProgressDialog(getActivity());
+        //ProgressDialog pdLoading = new ProgressDialog(getApplicationContext());
         HttpURLConnection conn;
         URL url = null;
+        ProgressDialog pDialog;
+        private Context mcontext;
+
+        getData(Context context){
+            this.mcontext=context;
+        }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    pDialog = new ProgressDialog(mcontext);
+                    pDialog.setMessage("Loading..");
+                    pDialog.setIndeterminate(false);
+                    pDialog.setCancelable(true);
+                    pDialog.show();
 
-            //this method will be running on UI thread
-            pdLoading.setMessage("\tLoading...");
-            pdLoading.setCancelable(false);
-            pdLoading.show();
+                }
+            });
 
         }
         @Override
@@ -271,16 +280,16 @@ public class link_center extends Fragment {
 
             //this method will be running on UI thread
 
-            pdLoading.dismiss();
+            pDialog.dismiss();
             data = result;
             JSONanalyse();
             for(int i=0;i<north.size();i++)
                 Log.i(TAG,north.get(i).name);
 
-            TableLayout ll = (TableLayout) getView().findViewById(R.id.NorthTable);
-            TableLayout cl = (TableLayout) getView().findViewById(R.id.CenterTable);
-            TableLayout sl = (TableLayout) getView().findViewById(R.id.SouthTable);
-            TableLayout el = (TableLayout) getView().findViewById(R.id.EastTable);
+            TableLayout ll = (TableLayout) findViewById(R.id.NorthTable);
+            TableLayout cl = (TableLayout) findViewById(R.id.CenterTable);
+            TableLayout sl = (TableLayout) findViewById(R.id.SouthTable);
+            TableLayout el = (TableLayout) findViewById(R.id.EastTable);
             for (int i = 0; i <north.size(); i++) {
                 addTableRow(ll,north.get(i).name,north.get(i).phone,north.get(i).address);
             }

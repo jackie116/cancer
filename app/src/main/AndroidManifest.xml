@@ -67,6 +67,11 @@
         <activity android:name=".signup_activity" />
         <activity android:name=".user_profile" />
         <activity android:name=".user_modify" />
+        <activity android:name=".link.link_center" />
+        <activity android:name=".link.link_economic" />
+        <activity android:name=".link.link_foundation" />
+        <activity android:name=".link.link_resource" />
+        <activity android:name=".link.link_sister" />
         <activity
             android:name=".CameraActivity"
             android:label="@string/title_activity_camera"
