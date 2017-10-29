@@ -55,7 +55,7 @@ public class signup_activity extends AppCompatActivity {
         edt_password = (EditText)findViewById(R.id.password);
         edt_confirm = (EditText)findViewById(R.id.confirm);
         btn_signup = (Button)findViewById(R.id.btn_signup);
-
+        //按螢幕縮鍵盤
         linear_tab.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -87,10 +87,7 @@ public class signup_activity extends AppCompatActivity {
                     edt_email.setText("");
                     edt_password.setText("");
                     edt_confirm.setText("");
-                    SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-                    String nowDateTime = format.format(new Date(System.currentTimeMillis()));
-                    Log.d(TAG, "123  "+nowDateTime);
-                    new AsyncLSignup().execute(email, password, nowDateTime);
+                    new AsyncLSignup().execute(email, password);
 
                 }
             }
@@ -165,8 +162,7 @@ public class signup_activity extends AppCompatActivity {
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("email", params[0])
-                        .appendQueryParameter("password", params[1])
-                        .appendQueryParameter("jointime", params[2]);
+                        .appendQueryParameter("password", params[1]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
