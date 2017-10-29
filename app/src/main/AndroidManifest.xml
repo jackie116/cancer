@@ -20,11 +20,10 @@
         </activity>
         <activity
             android:name=".center"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".laugh"
-            android:label="笑吧"
-            />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".laugh"
+            android:label="笑吧" />
         <activity android:name=".eat" />
         <activity android:name=".cure" />
         <activity android:name=".link" />
@@ -57,7 +56,8 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".signup_activity" />
-        <activity android:name=".user_profile"></activity>
+        <activity android:name=".user_profile" />
+        <activity android:name=".user_modify"></activity>
     </application>
 
 </manifest>
