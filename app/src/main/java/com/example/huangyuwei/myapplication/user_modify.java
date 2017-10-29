@@ -92,6 +92,13 @@ public class user_modify extends AppCompatActivity {
                 check_valid();
             }
         });
+        //test_date();
+    }
+    private void test_date(){
+        edt_name.setText("ABC");
+        edt_phone.setText("0987654321");
+        edt_c_level.setText("2");
+        edt_cure.setText("eat medicine");
     }
     private void check_valid(){
         boolean birth_valid = check_date(birth);
@@ -100,7 +107,7 @@ public class user_modify extends AppCompatActivity {
         boolean cdate_valid = check_date(c_date);
         if(birth_valid&&phone_valid&&clevel_valid&&cdate_valid){
             text_errMsg.setVisibility(View.INVISIBLE);
-            new modifyUserProfile().execute();
+            //new modifyUserProfile().execute();
         }
         else{
             String errMsg="";
@@ -118,16 +125,12 @@ public class user_modify extends AppCompatActivity {
     }
     private boolean check_date(String date){
         boolean date_valid = true;
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            // 设置lenient为false. 否则SimpleDateFormat会比较宽松地验证日期，比如2007/02/29会被接受，并转换成2007/03/01
-            format.setLenient(false);
-            format.parse(date);
-        } catch (ParseException e) {
-            // e.printStackTrace();
-            // 如果throw java.text.ParseException或者NullPointerException，就说明格式不对
+        //http://ldbjakyo.iteye.com/blog/1604214 含閏年的正規表示式
+        Pattern pattern = Pattern.compile("(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29)");
+        Matcher matcher = pattern.matcher(date);
+        if(!matcher.matches())
             date_valid=false;
-        }
+        Log.i(TAG, "123  "+date_valid);
         return date_valid;
     }
     private boolean check_phone(){
