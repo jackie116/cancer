@@ -6,12 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.huangyuwei.myapplication.R;
 
 
 public class cure_prognosis extends Fragment {
-
+    private WebView mWebView;
 
 
     public cure_prognosis() {
@@ -29,6 +32,16 @@ public class cure_prognosis extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mWebView = (WebView)getView().findViewById(R.id.webView);
+
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);   // 開啟Java Script 解譯功能
+
+        // 設定轉址的網頁還是由WebView開啟，不要用外部的瀏覽器。
+        mWebView.setWebViewClient(new WebViewClient());
+        String pdf = "http://13.115.90.58/cure_a.pdf";
+        mWebView.loadUrl("http://drive.google.com/viewerng/viewer?embedded=true&url="+pdf);
+        //mWebView.loadUrl("https://docs.google.com/viewer?url=http://13.115.90.58/cure_a.pdf");
 
 
     }
