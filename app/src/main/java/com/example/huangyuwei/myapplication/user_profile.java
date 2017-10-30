@@ -431,6 +431,7 @@ public class user_profile extends AppCompatActivity {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            center.getInstance().finish();
                             Intent intent = new Intent(user_profile.this,center.class);
                             startActivity(intent);
                             user_profile.this.finish();
