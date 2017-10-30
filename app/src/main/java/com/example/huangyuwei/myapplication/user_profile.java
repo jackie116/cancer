@@ -187,6 +187,7 @@ public class user_profile extends AppCompatActivity {
             userProfile.name = jsonObject.getString("name").equals("null")?"尚未輸入資料":jsonObject.getString("name");
             userProfile.birth = jsonObject.getString("birthday").equals("null")?"尚未輸入資料":jsonObject.getString("birthday");
             userProfile.phone = jsonObject.getString("phone").equals("null")?"尚未輸入資料":jsonObject.getString("phone");
+            userProfile.phone="0"+userProfile.phone;
             userProfile.c_level = jsonObject.getString("c_level").equals("null")?"尚未輸入資料":jsonObject.getString("c_level");
             userProfile.c_date = jsonObject.getString("c_date").equals("null")?"尚未輸入資料":jsonObject.getString("c_date");
             userProfile.cure = jsonObject.getString("cure").equals("null")?"尚未輸入資料":jsonObject.getString("cure");
@@ -430,6 +431,7 @@ public class user_profile extends AppCompatActivity {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            center.getInstance().finish();
                             Intent intent = new Intent(user_profile.this,center.class);
                             startActivity(intent);
                             user_profile.this.finish();
