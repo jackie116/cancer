@@ -37,6 +37,13 @@ public class cure_prognosis extends Fragment {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);   // 開啟Java Script 解譯功能
 
+        //支持屏幕缩放
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
+        //不显示webview缩放按钮
+        webSettings.setDisplayZoomControls(false);
+        //webSettings.setUseWideViewPort(true);// 可任意比例缩放
+
         // 設定轉址的網頁還是由WebView開啟，不要用外部的瀏覽器。
         mWebView.setWebViewClient(new WebViewClient());
         String pdf = "http://13.115.90.58/cure_a.pdf";
