@@ -3,6 +3,7 @@ package com.example.huangyuwei.myapplication;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -35,6 +36,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class user_profile extends AppCompatActivity {
+    private static user_profile mInstance=null;
     private final String TAG = "user_profile";
     private static final String account_data = "ACCOUNT";
     private final String getUserFailed = "驗證錯誤，請重新登入";
@@ -65,6 +67,7 @@ public class user_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         context=this;
+        mInstance=this;
         userProfile = new UserProfile();
         btn_logout = (Button)findViewById(R.id.btn_logout);
         btn_modify = (Button) findViewById(R.id.btn_modify);
@@ -118,6 +121,9 @@ public class user_profile extends AppCompatActivity {
 
 
         new getUserProfile().execute();
+    }
+    public static user_profile getInstance(){
+        return mInstance;
     }
     private void check_valid(){
         boolean birth_valid = check_date(userProfile.birth);
@@ -181,6 +187,7 @@ public class user_profile extends AppCompatActivity {
             userProfile.name = jsonObject.getString("name").equals("null")?"尚未輸入資料":jsonObject.getString("name");
             userProfile.birth = jsonObject.getString("birthday").equals("null")?"尚未輸入資料":jsonObject.getString("birthday");
             userProfile.phone = jsonObject.getString("phone").equals("null")?"尚未輸入資料":jsonObject.getString("phone");
+            userProfile.phone="0"+userProfile.phone;
             userProfile.c_level = jsonObject.getString("c_level").equals("null")?"尚未輸入資料":jsonObject.getString("c_level");
             userProfile.c_date = jsonObject.getString("c_date").equals("null")?"尚未輸入資料":jsonObject.getString("c_date");
             userProfile.cure = jsonObject.getString("cure").equals("null")?"尚未輸入資料":jsonObject.getString("cure");
@@ -421,7 +428,15 @@ public class user_profile extends AppCompatActivity {
             Log.i(TAG, "123123"+result);
             pdLoading.dismiss();
             final AlertDialog d = new AlertDialog.Builder(context)
-                    .setPositiveButton(android.R.string.ok, null)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            center.getInstance().finish();
+                            Intent intent = new Intent(user_profile.this,center.class);
+                            startActivity(intent);
+                            user_profile.this.finish();
+                        }
+                    })
                     .setMessage("個人資料更新成功")
                     .setTitle("更新")
                     .create();

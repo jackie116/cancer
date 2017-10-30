@@ -37,10 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private UserData userdata;
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
-    private SharedPreferences settings;
-    private static final String data = "DATA";
-    private static final String account_data = "ACCOUNT";
-    private static final String password_data = "PASSWORD";
     private LinearLayout linear_tab;
     private EditText etEmail;
     private EditText etPassword;
