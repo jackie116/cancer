@@ -2,10 +2,12 @@ package com.example.huangyuwei.myapplication.link;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -36,7 +38,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class link_economic extends Fragment {
+public class link_economic extends AppCompatActivity {
     class PublicCenter{
         String name;
         String eligibility;
@@ -68,21 +70,15 @@ public class link_economic extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_link_economic, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        new getData().execute();
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_link_economic);
+        new getData(this).execute();
 
     }
 
-    private void addPublicTableRow(TableLayout tl,final String name,final String phone,final String address,final String url,final String info){
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+    private void addPublicTableRow(final Context context, TableLayout tl,final String name,final String phone,final String address,final String url,final String info){
+        LayoutInflater inflater = this.getLayoutInflater();
         TableRow tr = (TableRow)inflater.inflate(R.layout.table_row, tl, false);
 
         // Add First Column
@@ -110,7 +106,7 @@ public class link_economic extends Fragment {
                 else
                     s = new SpannableString("電話：" + phone + "\n地址：" + address);
                 Linkify.addLinks(s, Linkify.WEB_URLS);
-                final AlertDialog d = new AlertDialog.Builder(getActivity())
+                final AlertDialog d = new AlertDialog.Builder(context)
                         .setPositiveButton(android.R.string.ok, null)
                         .setMessage( s )
                         .setTitle(name)
@@ -127,8 +123,8 @@ public class link_economic extends Fragment {
         tl.addView(tr);
     }
 
-    private void addPrivateTableRow(TableLayout tl,final String name,final String phone,final String address,final String url,final String info){
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+    private void addPrivateTableRow(final Context context, TableLayout tl,final String name,final String phone,final String address,final String url,final String info){
+        LayoutInflater inflater = this.getLayoutInflater();
         TableRow tr = (TableRow)inflater.inflate(R.layout.table_row, tl, false);
 
         // Add First Column
@@ -156,7 +152,7 @@ public class link_economic extends Fragment {
                 else
                     s = new SpannableString("電話：" + phone + "\n地址：" + address);
                 Linkify.addLinks(s, Linkify.WEB_URLS);
-                final AlertDialog d = new AlertDialog.Builder(getActivity())
+                final AlertDialog d = new AlertDialog.Builder(context)
                         .setPositiveButton(android.R.string.ok, null)
                         .setMessage( s )
                         .setTitle(name)
@@ -175,7 +171,7 @@ public class link_economic extends Fragment {
 
     private void addTableRow(TableLayout tl, String name, String phone, String address){
 
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        LayoutInflater inflater = this.getLayoutInflater();
         TableRow tr = (TableRow)inflater.inflate(R.layout.table_row, tl, false);
 
         // Add First Column
@@ -195,18 +191,29 @@ public class link_economic extends Fragment {
 
     private class getData extends AsyncTask<String, String, String>
     {
-        ProgressDialog pdLoading = new ProgressDialog(getActivity());
         HttpURLConnection conn;
         URL url = null;
+        ProgressDialog pDialog;
+        private Context mcontext;
+
+        getData(Context context){
+            this.mcontext=context;
+        }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    pDialog = new ProgressDialog(mcontext);
+                    pDialog.setMessage("Loading..");
+                    pDialog.setIndeterminate(false);
+                    pDialog.setCancelable(true);
+                    pDialog.show();
 
-            //this method will be running on UI thread
-            pdLoading.setMessage("\tLoading...");
-            pdLoading.setCancelable(false);
-            pdLoading.show();
+                }
+            });
 
         }
         @Override
@@ -293,19 +300,19 @@ public class link_economic extends Fragment {
 
             //this method will be running on UI thread
 
-            pdLoading.dismiss();
+            pDialog.dismiss();
             data = result;
             JSONanalyse();
 
 
-            TableLayout ll = (TableLayout) getView().findViewById(R.id.PublicTable);
-            TableLayout cl = (TableLayout) getView().findViewById(R.id.PrivateTable);
+            TableLayout ll = (TableLayout) findViewById(R.id.PublicTable);
+            TableLayout cl = (TableLayout) findViewById(R.id.PrivateTable);
             for (int i = 0; i <publicCenters.size(); i++)
-                addPublicTableRow(ll,publicCenters.get(i).name,publicCenters.get(i).eligibility,publicCenters.get(i).unit,
+                addPublicTableRow(mcontext,ll,publicCenters.get(i).name,publicCenters.get(i).eligibility,publicCenters.get(i).unit,
                         publicCenters.get(i).url,publicCenters.get(i).info);
 
             for (int i = 0; i <privateCenters.size(); i++)
-                addPrivateTableRow(cl,privateCenters.get(i).name,privateCenters.get(i).phone,privateCenters.get(i).address,
+                addPrivateTableRow(mcontext, cl,privateCenters.get(i).name,privateCenters.get(i).phone,privateCenters.get(i).address,
                         privateCenters.get(i).url,privateCenters.get(i).info);
 
 

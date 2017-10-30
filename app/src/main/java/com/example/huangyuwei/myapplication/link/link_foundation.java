@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -53,7 +54,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class link_foundation extends Fragment {
+public class link_foundation extends AppCompatActivity {
 
     class Center{
         String imageurl;
@@ -77,22 +78,15 @@ public class link_foundation extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_link_foundation, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        new getData().execute();
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_link_foundation);
+        new getData(this).execute();
     }
     
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         private List<Center> mData;
-
+        Context mcontext;
         public class ViewHolder extends RecyclerView.ViewHolder {
             public TextView mTextView;
             public TextView mPhoneView;
@@ -105,8 +99,9 @@ public class link_foundation extends Fragment {
             }
         }
 
-        public MyAdapter(List<Center> data) {
+        public MyAdapter(List<Center> data, Context context) {
             mData = data;
+            mcontext=context;
         }
 
         @Override
@@ -133,7 +128,7 @@ public class link_foundation extends Fragment {
                         s = new SpannableString("電話：" + foundations.get(position).phone + "\n地址：" + foundations.get(position).address + "\n\n");
 
                     Linkify.addLinks(s, Linkify.WEB_URLS);
-                    final AlertDialog d = new AlertDialog.Builder(getActivity())
+                    final AlertDialog d = new AlertDialog.Builder(mcontext)
                             .setPositiveButton(android.R.string.ok, null)
                             .setMessage( s )
                             .create();
@@ -156,18 +151,29 @@ public class link_foundation extends Fragment {
 
     private class getData extends AsyncTask<String, String, String>
     {
-        ProgressDialog pdLoading = new ProgressDialog(getActivity());
         HttpURLConnection conn;
         URL url = null;
+        ProgressDialog pDialog;
+        private Context mcontext;
+
+        getData(Context context){
+            this.mcontext=context;
+        }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    pDialog = new ProgressDialog(mcontext);
+                    pDialog.setMessage("Loading..");
+                    pDialog.setIndeterminate(false);
+                    pDialog.setCancelable(true);
+                    pDialog.show();
 
-            //this method will be running on UI thread
-            pdLoading.setMessage("\tLoading...");
-            pdLoading.setCancelable(false);
-            pdLoading.show();
+                }
+            });
 
         }
         @Override
@@ -254,13 +260,13 @@ public class link_foundation extends Fragment {
 
             //this method will be running on UI thread
 
-            pdLoading.dismiss();
+            pDialog.dismiss();
             data = result;
             JSONanalyse();
             Log.i(TAG,data);
-            mAdapter = new MyAdapter(foundations);
-            mRecyclerView = (RecyclerView) getView().findViewById(R.id.list_view);
-            final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+            mAdapter = new MyAdapter(foundations,mcontext);
+            mRecyclerView = (RecyclerView) findViewById(R.id.list_view);
+            final LinearLayoutManager layoutManager = new LinearLayoutManager(mcontext);
             layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             mRecyclerView.setLayoutManager(layoutManager);
             mRecyclerView.setAdapter(mAdapter);

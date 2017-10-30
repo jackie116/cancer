@@ -3,11 +3,13 @@ package com.example.huangyuwei.myapplication.mem;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.adapter.GridViewAdapter;
 
 public class mem extends AppCompatActivity {
 
@@ -26,6 +28,13 @@ public class mem extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSectionsPagerAdapter.notifyDataSetChanged();
+    }
+
 
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -87,6 +96,11 @@ public class mem extends AppCompatActivity {
                 default:
                     return null;
             }
+        }
+
+        @Override
+        public int getItemPosition(Object object) {
+            return PagerAdapter.POSITION_NONE;
         }
     }
 }

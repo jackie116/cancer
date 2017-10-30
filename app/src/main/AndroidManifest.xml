@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+  
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_login"
@@ -66,6 +68,15 @@
         <activity android:name=".signup_activity" />
         <activity android:name=".user_profile" />
         <activity android:name=".user_modify" />
+        <activity android:name=".link.link_center" />
+        <activity android:name=".link.link_economic" />
+        <activity android:name=".link.link_foundation" />
+        <activity android:name=".link.link_resource" />
+        <activity android:name=".link.link_sister" />
+        <activity
+            android:name=".CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".modify_password"></activity>
     </application>
 
