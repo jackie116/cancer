@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.huangyuwei.myapplication.ask.ask;
 import com.example.huangyuwei.myapplication.cure.cure;
+import com.example.huangyuwei.myapplication.cure.cure_main;
 import com.example.huangyuwei.myapplication.eat.eat;
 import com.example.huangyuwei.myapplication.laugh.laugh;
 import com.example.huangyuwei.myapplication.link.link;
@@ -54,7 +55,7 @@ public class center extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(center.this  , cure.class);
+                intent.setClass(center.this  , cure_main.class);
                 startActivity(intent);
             }
         });
