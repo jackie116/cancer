@@ -174,8 +174,7 @@ public class cure_main extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(getApplicationContext(), "你選擇" + name[position], Toast.LENGTH_SHORT).show();
-
+                    //Toast.makeText(getApplicationContext(), "你選擇" + name[position], Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     intent.setClass(cure_main.this,cure_show.class);
                     intent.putExtra("url",urlData[position]);//可放所有基本類別
