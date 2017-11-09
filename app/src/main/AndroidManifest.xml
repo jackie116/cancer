@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
-  
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_login"
@@ -76,8 +76,10 @@
         <activity
             android:name=".CameraActivity"
             android:label="@string/title_activity_camera"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".modify_password"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".modify_password" />
+        <activity android:name=".cure.cure_main" />
+        <activity android:name=".cure.cure_show"></activity>
     </application>
 
 </manifest>
