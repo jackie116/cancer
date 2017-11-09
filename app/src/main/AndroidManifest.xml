@@ -79,7 +79,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".modify_password" />
         <activity android:name=".cure.cure_main" />
-        <activity android:name=".cure.cure_show"></activity>
+        <activity android:name=".cure.cure_show" />
+        <activity android:name=".eat.eat_main" />
+        <activity android:name=".eat.eat_show"></activity>
     </application>
 
 </manifest>
