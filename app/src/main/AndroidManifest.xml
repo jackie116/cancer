@@ -81,7 +81,10 @@
         <activity android:name=".cure.cure_main" />
         <activity android:name=".cure.cure_show" />
         <activity android:name=".eat.eat_main" />
-        <activity android:name=".eat.eat_show"></activity>
+        <activity android:name=".eat.eat_show" />
+        <activity android:name=".mem.self_main" />
+        <activity android:name=".mem.body_main" />
+        <activity android:name=".mem.mood_main"></activity>
     </application>
 
 </manifest>
