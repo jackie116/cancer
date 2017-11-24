@@ -12,13 +12,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.huangyuwei.myapplication.ask.ask;
-import com.example.huangyuwei.myapplication.cure.cure;
 import com.example.huangyuwei.myapplication.cure.cure_main;
-import com.example.huangyuwei.myapplication.eat.eat;
 import com.example.huangyuwei.myapplication.eat.eat_main;
 import com.example.huangyuwei.myapplication.laugh.laugh;
 import com.example.huangyuwei.myapplication.link.link;
-import com.example.huangyuwei.myapplication.mem.mem;
+import com.example.huangyuwei.myapplication.mem.self_main;
 import com.example.huangyuwei.myapplication.move.move;
 import com.example.huangyuwei.myapplication.talk.talk;
 
@@ -96,7 +94,7 @@ public class center extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(center.this  , mem.class);
+                intent.setClass(center.this  , self_main.class);
                 startActivity(intent);
             }
         });
