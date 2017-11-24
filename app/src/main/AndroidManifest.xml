@@ -34,11 +34,8 @@
         <activity
             android:name=".laugh.laugh"
             android:label="笑吧" />
-        <activity android:name=".eat.eat" />
-        <activity android:name=".cure.cure" />
         <activity android:name=".link.link" />
         <activity android:name=".move.move" />
-        <activity android:name=".mem.mem" />
         <activity android:name=".talk.talk" />
         <activity android:name=".ask.ask" />
         <activity
