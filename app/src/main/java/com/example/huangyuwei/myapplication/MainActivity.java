@@ -1,6 +1,7 @@
 package com.example.huangyuwei.myapplication;
 
 import android.app.ProgressDialog;
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +18,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.example.huangyuwei.myapplication.database.CancerDatabase;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private String password;
     private Button btn_signup_main;
     private CheckBox autoLogin;
+    CancerDatabase cb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             MainActivity.this.finish();
         }
-
+        cb= CancerDatabase.getInMemoryDatabase(this);
 
     }
     public static Context getContext(){
