@@ -283,8 +283,6 @@ public class link_center extends AppCompatActivity {
             pDialog.dismiss();
             data = result;
             JSONanalyse();
-            for(int i=0;i<north.size();i++)
-                Log.i(TAG,north.get(i).name);
 
             TableLayout ll = (TableLayout) findViewById(R.id.NorthTable);
             TableLayout cl = (TableLayout) findViewById(R.id.CenterTable);
