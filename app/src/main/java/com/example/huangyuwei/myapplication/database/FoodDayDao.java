@@ -23,10 +23,10 @@ public interface FoodDayDao {
     List<FoodDay> getAll();
 
     @Insert
-    void insertAll(FoodDay... foodDays);
+    void insertFoodDay(FoodDay... foodDays);
 
     @Update
-    void updateUsers(FoodDay... foodDays);
+    void updateFoodDay(FoodDay... foodDays);
 
     @Delete
     void delete(FoodDay... foodDays);
