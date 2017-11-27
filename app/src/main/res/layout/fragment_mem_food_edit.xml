@@ -124,7 +124,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:onClick="sendFeedback"
-                android:text="儲存"></Button>
+                android:text="新增"></Button>
 
         </LinearLayout>
     </ScrollView>
