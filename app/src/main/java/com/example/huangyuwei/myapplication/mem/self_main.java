@@ -10,13 +10,25 @@ import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.move.move_exercise_movie;
 
 public class self_main extends AppCompatActivity {
-    Button btnmemfood;
+    Button btn_mood;
+    Button btn_food;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_main);
-        btnmemfood= (Button)findViewById(R.id.mem_food_button);
-        btnmemfood.setOnClickListener(new View.OnClickListener() {
+
+        btn_mood= (Button) findViewById(R.id.mem_mood_button);
+        btn_mood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(self_main.this  , mood_main.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_food= (Button)findViewById(R.id.mem_food_button);
+        btn_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
