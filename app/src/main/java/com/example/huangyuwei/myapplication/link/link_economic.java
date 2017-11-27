@@ -169,25 +169,6 @@ public class link_economic extends AppCompatActivity {
         tl.addView(tr);
     }
 
-    private void addTableRow(TableLayout tl, String name, String phone, String address){
-
-        LayoutInflater inflater = this.getLayoutInflater();
-        TableRow tr = (TableRow)inflater.inflate(R.layout.table_row, tl, false);
-
-        // Add First Column
-        TextView Name = (TextView)tr.findViewById(R.id.Name);
-        Name.setText(name);
-
-        // Add the 3rd Column
-        TextView Phone = (TextView)tr.findViewById(R.id.Phone);
-        Phone.setText(phone);
-
-        TextView Address = (TextView)tr.findViewById(R.id.Address);
-        Address.setText(address);
-
-        tl.addView(tr);
-    }
-
 
     private class getData extends AsyncTask<String, String, String>
     {

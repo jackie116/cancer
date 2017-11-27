@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private String password;
     private Button btn_signup_main;
     private CheckBox autoLogin;
-    CancerDatabase cb;
+    public static CancerDatabase cb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             MainActivity.this.finish();
         }
-        cb= CancerDatabase.getInMemoryDatabase(this);
+        cb=CancerDatabase.getInMemoryDatabase(getContext());
+
 
     }
     public static Context getContext(){
@@ -228,6 +229,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        try {
+            cb.closeDb();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        super.onDestroy();
     }
 }
 

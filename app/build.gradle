@@ -17,7 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets { main { java.srcDirs = ['src/main/java'] } }
+    sourceSets {
+        main { java.srcDirs = ['src/main/java'] }
+        androidTest.assets.srcDirs +=
+                files("$projectDir/schemas".toString())
+    }
 }
 
 allprojects {
@@ -46,4 +50,5 @@ dependencies {
     compile 'android.arch.persistence.room:rxjava2:1.0.0-alpha1'
     testCompile'android.arch.persistence.room:testing:1.0.0-alpha1'
     testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
 }

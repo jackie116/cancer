@@ -30,34 +30,6 @@
                 android:hint="日期"
                 android:inputType="date"></EditText>
 
-            <EditText
-                android:id="@+id/EditTextTime"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="時間"
-                android:inputType="time"></EditText>
-
-            <EditText
-                android:id="@+id/EditTextFood"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="食物"
-                android:inputType="text"></EditText>
-
-            <EditText
-                android:id="@+id/EditTextFoodCalories"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="熱量"
-                android:inputType="numberDecimal"></EditText>
-
-            <Button
-                android:id="@+id/saveFoodDay"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:onClick="sendFeedback"
-                android:text="儲存"></Button>
-
             <TableLayout
                 android:id="@+id/food_daytable"
                 android:layout_width="match_parent"
@@ -147,6 +119,13 @@
 
 
             </TableLayout>
+            <Button
+                android:id="@+id/addFoodDay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendFeedback"
+                android:text="儲存"></Button>
+
         </LinearLayout>
     </ScrollView>
 
