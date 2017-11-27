@@ -81,7 +81,8 @@
         <activity android:name=".eat.eat_show" />
         <activity android:name=".mem.self_main" />
         <activity android:name=".mem.body_main" />
-        <activity android:name=".mem.mood_main"></activity>
+        <activity android:name=".mem.mood_main" />
+        <activity android:name=".mem.mood_ask"></activity>
     </application>
 
 </manifest>
