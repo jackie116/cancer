@@ -13,12 +13,10 @@ import java.util.UUID;
 /**
  * Created by tom on 26/11/2017.
  */
-@Entity(foreignKeys = @ForeignKey(entity = FoodDay.class,
-        parentColumns = "date",
-        childColumns = "date_id"))
+@Entity(tableName = "foodtime", primaryKeys = {"date_id", "time"})
 public class FoodTime {
     public int date_id;
-    private Time time;
-    private String FoodName;
-
+    public int time;
+    public String FoodName;
+    public Double calories;
 }

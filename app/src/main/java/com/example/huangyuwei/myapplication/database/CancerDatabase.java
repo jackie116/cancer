@@ -9,12 +9,11 @@ import android.content.Context;
  * Created by tom on 26/11/2017.
  */
 
-@Database(entities = {FoodDay.class}, version = 1)
+@Database(entities = {FoodTime.class}, version = 1)
 public abstract class CancerDatabase extends RoomDatabase {
 
     private static CancerDatabase INSTANCE;
-    public abstract FoodDayDao foodDayDao();
-
+    public abstract FoodTimeDao foodTimeDao();
     public static CancerDatabase getInMemoryDatabase(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.inMemoryDatabaseBuilder(context.getApplicationContext(), CancerDatabase.class).allowMainThreadQueries().build();
@@ -25,4 +24,6 @@ public abstract class CancerDatabase extends RoomDatabase {
     public static void destroyInstance() {
         INSTANCE = null;
     }
+
+
 }
