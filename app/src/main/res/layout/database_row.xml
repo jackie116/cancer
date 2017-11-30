@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/row_shape"
+    android:visibility="visible"
+    android:clickable="true">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_span="2"
+            android:background="@drawable/cell_shape"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:padding="5dp"
+            android:scrollHorizontally="false"
+            android:text=""
+            android:longClickable="false"
+            android:clickable="false"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/Phone"
+            android:layout_width="105dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@id/Name"
+            android:background="@drawable/cell_shape"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:longClickable="false"
+            android:clickable="false"
+            android:padding="5dp"
+            android:text="" />
+
+
+        <TextView
+            android:id="@+id/Address"
+            android:layout_width="147dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@id/Phone"
+            android:background="@drawable/cell_shape"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:longClickable="false"
+            android:clickable="false"
+            android:padding="5dp"
+            android:text="" />
+
+    </RelativeLayout>
+
+</TableRow>
+
+
