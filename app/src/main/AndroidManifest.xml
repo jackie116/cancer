@@ -88,7 +88,13 @@
             android:name=".mem.mem_food_main"
             android:label="@string/title_activity_mem_food_new" />
         <activity android:name=".mem.mood_qa" />
+
         <activity android:name=".mem.mem_mood_main" />
+
+        <activity android:name=".mem.mem_mine" />
+        <activity android:name=".mem.mem_cure" />
+        <activity android:name=".mem.mem_cure_main"></activity>
+
     </application>
 
 </manifest>
