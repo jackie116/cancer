@@ -8,7 +8,7 @@ import android.widget.ImageButton;
 
 import com.example.huangyuwei.myapplication.R;
 
-public class mood_main extends AppCompatActivity {
+public class mood_emoji extends AppCompatActivity {
     ImageButton btn_cry;
     ImageButton btn_happy;
     ImageButton btn_vomit;
@@ -19,7 +19,7 @@ public class mood_main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mood_main);
+        setContentView(R.layout.activity_mood_emoji);
 
         btn_cry= (ImageButton) findViewById(R.id.btn_cry);
         btn_cry.setOnClickListener(new View.OnClickListener() {

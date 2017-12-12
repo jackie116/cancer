@@ -9,9 +9,8 @@ import android.os.Bundle;
 
 import com.example.huangyuwei.myapplication.R;
 
-public class mem_food_main extends AppCompatActivity {
-
-    private String TAG="飲食";
+public class mem_mood_main extends AppCompatActivity {
+    private String TAG="心情";
 
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
@@ -19,7 +18,7 @@ public class mem_food_main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mem_food_main);
+        setContentView(R.layout.activity_mem_mood_main);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(
                 getSupportFragmentManager());
@@ -42,10 +41,10 @@ public class mem_food_main extends AppCompatActivity {
             // 根據目前tab標籤頁的位置，傳回對應的fragment物件
             switch (position) {
                 case 0:
-                    fragment = new mem_food_all();
+                    fragment = new mem_mood_all();
                     break;
                 case 1:
-                    fragment = new mem_food_edit();
+                    fragment = new mem_mood_edit();
                     break;
 
             }
@@ -62,9 +61,9 @@ public class mem_food_main extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "飲食總攬";
+                    return "心情總攬";
                 case 1:
-                    return "一日飲食編輯";
+                    return "新增心情";
 
                 default:
                     return null;
