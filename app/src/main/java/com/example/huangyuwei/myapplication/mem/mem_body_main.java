@@ -9,9 +9,9 @@ import android.os.Bundle;
 
 import com.example.huangyuwei.myapplication.R;
 
-public class mem_food_main extends AppCompatActivity {
+public class mem_body_main extends AppCompatActivity {
 
-    private String TAG="飲食";
+    private String TAG="身體";
 
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
@@ -19,7 +19,7 @@ public class mem_food_main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mem_food_main);
+        setContentView(R.layout.activity_mem_body_main);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(
                 getSupportFragmentManager());
@@ -42,12 +42,20 @@ public class mem_food_main extends AppCompatActivity {
             // 根據目前tab標籤頁的位置，傳回對應的fragment物件
             switch (position) {
                 case 0:
-                    fragment = new mem_food_all();
+                    fragment = new mem_body_weight();
                     break;
                 case 1:
-                    fragment = new mem_food_edit();
+                    fragment = new mem_body_tmp();
                     break;
-
+                case 2:
+                    fragment = new mem_body_blood();
+                    break;
+                case 3:
+                    fragment = new mem_body_arm();
+                    break;
+                case 4:
+                    fragment = new mem_body_symptom();
+                    break;
             }
 
             return fragment;
@@ -55,16 +63,22 @@ public class mem_food_main extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 2;
+            return 5;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "飲食總攬";
+                    return "體重";
                 case 1:
-                    return "一日飲食編輯";
+                    return "體溫";
+                case 2:
+                    return "血液";
+                case 3:
+                    return "手臂";
+                case 4:
+                    return "症狀";
 
                 default:
                     return null;

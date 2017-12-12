@@ -3,12 +3,9 @@ package com.example.huangyuwei.myapplication.mem;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +19,7 @@ import java.text.NumberFormat;
 import com.example.huangyuwei.myapplication.R;
 
 
-public class mem_body extends Fragment {
+public class mem_body extends AppCompatActivity {
 
 
     EditText edtcm,edtkg;
@@ -30,27 +27,15 @@ public class mem_body extends Fragment {
     Button btncount;
     private LinearLayout linear_tab;
 
-    public mem_body() {
-        // Required empty public constructor
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mem_body_main);
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mem_body, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        edtcm=(EditText)getView().findViewById(R.id.input_cm);
-        edtkg=(EditText)getView().findViewById(R.id.input_kg);
-        edtresult=(TextView)getView().findViewById(R.id.result) ;
-        btncount=(Button)getView().findViewById(R.id.count);
-        linear_tab = (LinearLayout)getView().findViewById(R.id.linear_tab_signup);
+        edtcm=(EditText)findViewById(R.id.input_cm);
+        edtkg=(EditText)findViewById(R.id.input_kg);
+        edtresult=(TextView)findViewById(R.id.result) ;
+        btncount=(Button)findViewById(R.id.count);
+        linear_tab = (LinearLayout)findViewById(R.id.linear_tab_signup);
 
         linear_tab.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -66,7 +51,7 @@ public class mem_body extends Fragment {
             @Override
             public void onClick(View v) {
                 if(edtcm.getText().toString().matches("")||edtkg.getText().toString().matches("")){
-                    Toast.makeText(getActivity(), "輸入不可為空", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"輸入不可為空", Toast.LENGTH_SHORT).show();
                 }else{
                     cm=Float.parseFloat(edtcm.getText().toString());
                     m=cm/100;
@@ -88,8 +73,4 @@ public class mem_body extends Fragment {
 
 
     }
-
-
-
-
 }
