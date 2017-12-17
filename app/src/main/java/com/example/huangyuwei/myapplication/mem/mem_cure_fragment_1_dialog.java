@@ -3,9 +3,12 @@ package com.example.huangyuwei.myapplication.mem;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,6 +16,8 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.database.CancerDatabase;
+import com.example.huangyuwei.myapplication.database.ChemCure;
 
 import java.util.Calendar;
 
@@ -43,6 +48,7 @@ public class mem_cure_fragment_1_dialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_mem_cure_fragment_1_edit);
+        context = getContext();
         dateText = (TextView) findViewById(R.id.dateText);
         checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
@@ -77,6 +83,48 @@ public class mem_cure_fragment_1_dialog extends Dialog {
             public void onClick(View v) {
                 if (yesOnclickListener != null) {
                     yesOnclickListener.onYesClick();
+                    String date = dateText.getText().toString();
+                    String data = "";
+                    if(checkBox1.isChecked()){
+                        data+=checkBox1.getText().toString();
+                    }
+                    if(checkBox2.isChecked()){
+                        data+=checkBox2.getText().toString();
+                    }
+                    if(checkBox3.isChecked()){
+                        data+=checkBox3.getText().toString();
+                    }
+                    if(checkBox4.isChecked()){
+                        data+=checkBox4.getText().toString();
+                    }
+                    dateText.setText(data);
+                    if(date.equals("")){
+                        new AlertDialog.Builder(context)
+                                .setTitle("錯誤")
+                                .setMessage("未選取日期")
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                })
+                                .show();
+                    }
+                    else {
+                        if (data.equals("")) {
+                            new AlertDialog.Builder(context)
+                                    .setTitle("錯誤")
+                                    .setMessage("未選取任何處方")
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    })
+                                    .show();
+                        }
+                        else{
+
+                        }
+                    }
                 }
             }
         });
@@ -121,5 +169,38 @@ public class mem_cure_fragment_1_dialog extends Dialog {
         return String.valueOf(year) + "."
                 + String.valueOf(monthOfYear + 1) + "."
                 + String.valueOf(dayOfMonth);
+    }
+
+    private ChemCure addFoodTime(final CancerDatabase db, ChemCure cure) {
+        db.beginTransaction();
+        try {
+            db.chemCureDao().insertFoodTime(cure);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        return cure;
+    }
+
+    private ChemCure deleteFoodTime(final CancerDatabase db, ChemCure cure) {
+        db.beginTransaction();
+        try {
+            db.chemCureDao().delete(cure);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        return cure;
+    }
+
+    private ChemCure updateFoodTime(final CancerDatabase db, ChemCure cure) {
+        db.beginTransaction();
+        try {
+            db.chemCureDao().updateFoodTime(cure);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        return cure;
     }
 }

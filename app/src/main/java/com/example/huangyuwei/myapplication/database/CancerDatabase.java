@@ -23,6 +23,7 @@ public abstract class CancerDatabase extends RoomDatabase {
     private static CancerDatabase INSTANCE;
     public abstract FoodTimeDao foodTimeDao();
     public abstract MoodTimeDao moodTimeDao();
+    public abstract ChemCureDao chemCureDao();
     public abstract TmpTimeDao tmpTimeDao();
     public static CancerDatabase getInMemoryDatabase(Context context) {
         if (INSTANCE == null) {

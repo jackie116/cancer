@@ -14,12 +14,23 @@ public class self_main extends AppCompatActivity {
     Button btn_food;
     Button btn_body;
     Button btn_cure;
+    Button btn_mine;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_main);
         mInstance=this;
+        btn_mine = (Button) findViewById(R.id.mem_me_button);
+        btn_mine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(self_main.this  , mem_mine.class);
+                startActivity(intent);
+            }
+        });
 
         btn_mood= (Button) findViewById(R.id.mem_mood_button);
         btn_mood.setOnClickListener(new View.OnClickListener() {
