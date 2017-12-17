@@ -82,8 +82,6 @@
         <activity android:name=".mem.self_main" />
         <activity android:name=".mem.mem_body" />
         <activity android:name=".mem.mem_body_main" />
-        <activity android:name=".mem.mood_emoji" />
-        <activity android:name=".mem.mood_ask" />
         <activity
             android:name=".mem.mem_food_main"
             android:label="@string/title_activity_mem_food_new" />

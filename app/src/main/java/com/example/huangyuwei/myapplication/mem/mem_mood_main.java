@@ -63,7 +63,7 @@ public class mem_mood_main extends AppCompatActivity {
                 case 0:
                     return "心情總攬";
                 case 1:
-                    return "新增心情";
+                    return "心情測驗";
 
                 default:
                     return null;

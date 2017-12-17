@@ -1,126 +1,74 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.huangyuwei.myapplication.mem.mem_mood_edit">
+    tools:context="com.example.huangyuwei.myapplication.mem.mood_ask">
 
-    <ScrollView
-        android:id="@+id/ScrollView01"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical">
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="128dp"
+        android:layout_height="67dp"
+        app:srcCompat="@drawable/mood"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintVertical_bias="0.018" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintVertical_bias="0.189" />
 
-            <!--Put form controls here-->
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="330dp"
+        android:layout_height="258dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/mood_tmp"
+        android:text="請您仔細回想「在最近一星期中(包括今天)」，這些問題使您感到困擾或苦惱的程度，請您選擇一個您認為最能代表您感覺的答案。"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.54" />
 
+    <ImageButton
+        android:id="@+id/btn_start"
+        android:layout_width="221dp"
+        android:layout_height="56dp"
+        app:srcCompat="@drawable/start"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.919"
+        tools:layout_editor_absoluteX="76dp"
+        app:layout_constraintHorizontal_bias="0.503" />
 
-            <EditText
-                android:id="@+id/EditTextDate"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="日期"
-                android:inputType="date"></EditText>
-
-            <TableLayout
-                android:id="@+id/mood_daytable"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/row_shape">
-
-                <TableRow
-                    android:id="@+id/mood_dayrow_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
-                    android:visibility="visible">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/mood_day_label"
-                            android:layout_width="382dp"
-                            android:layout_height="30dp"
-                            android:layout_span="2"
-                            android:background="@drawable/north_shape"
-                            android:inputType="textMultiLine"
-                            android:maxLines="5"
-                            android:padding="5dp"
-                            android:scrollHorizontally="false"
-                            android:text=""
-                            android:textAlignment="center" />
-
-                    </RelativeLayout>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/mood_time_row"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
-                    android:visibility="visible">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/mood_time_label"
-                            android:layout_width="130dp"
-                            android:layout_height="30dp"
-                            android:layout_span="2"
-                            android:background="@drawable/top_shape"
-                            android:inputType="textMultiLine"
-                            android:maxLines="5"
-                            android:padding="5dp"
-                            android:scrollHorizontally="false"
-                            android:text="時間"
-                            android:textAlignment="center" />
-
-                        <TextView
-                            android:id="@+id/mood_mood_label"
-                            android:layout_width="105dp"
-                            android:layout_height="30dp"
-                            android:layout_toRightOf="@id/food_time_label"
-                            android:background="@drawable/top_shape"
-                            android:ems="10"
-                            android:inputType="textMultiLine"
-                            android:maxLines="5"
-                            android:padding="5dp"
-                            android:text="心情溫度計"
-                            android:textAlignment="center" />
-
-
-                        <TextView
-                            android:id="@+id/mood_emoji_label"
-                            android:layout_width="147dp"
-                            android:layout_height="30dp"
-                            android:layout_toRightOf="@id/food_food_label"
-                            android:background="@drawable/top_shape"
-                            android:ems="10"
-                            android:inputType="textMultiLine"
-                            android:maxLines="5"
-                            android:padding="5dp"
-                            android:text="心情"
-                            android:textAlignment="center" />
-
-                    </RelativeLayout>
-                </TableRow>
-
-
-            </TableLayout>
-            <Button
-                android:id="@+id/addMoodDay"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:onClick="sendFeedback"
-                android:text="新增"></Button>
-
-        </LinearLayout>
-    </ScrollView>
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>

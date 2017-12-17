@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/food_day_layout"
+    android:id="@+id/mood_day_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/EditTextTime"
+        android:id="@+id/EditTextDate"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="時間"
-        android:inputType="time"></EditText>
+        android:hint="日期"
+        android:inputType="date"></EditText>
 
     <EditText
         android:id="@+id/EditTextMood"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="心情溫度計"
-        android:inputType="text"></EditText>
+        android:inputType="numberDecimal"></EditText>
 
     <EditText
-        android:id="@+id/EditTextEmoji"
+        android:id="@+id/EditTextDiary"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="心情"
-        android:inputType="numberDecimal"></EditText>
+        android:hint="心情日記"
+        android:inputType="text"></EditText>
 
     <!--<Button-->
     <!--android:id="@+id/saveFoodDay"-->
