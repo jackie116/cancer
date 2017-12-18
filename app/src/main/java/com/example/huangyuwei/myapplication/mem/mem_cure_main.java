@@ -19,12 +19,14 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.database.ChemCure;
 import com.example.huangyuwei.myapplication.mem.dummy.DummyContent;
 
 public class mem_cure_main extends AppCompatActivity implements mem_cure_fragment_1.OnListFragmentInteractionListener,
         mem_cure_fragment_2.OnFragmentInteractionListener, mem_cure_fragment_3.OnFragmentInteractionListener, mem_cure_fragment_4.OnFragmentInteractionListener,
         mem_cure_fragment_1_edit.OnFragmentInteractionListener, mem_cure_fragment_2_edit.OnFragmentInteractionListener, mem_cure_fragment_3_edit.OnFragmentInteractionListener, mem_cure_fragment_4_edit.OnFragmentInteractionListener{
     private final String TAG = "MEM_CURE";
+    private mem_cure_main instance;
     private Context context;
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
@@ -38,6 +40,7 @@ public class mem_cure_main extends AppCompatActivity implements mem_cure_fragmen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mem_cure_main);
+        instance=this;
         context = this;
         mSectionsPagerAdapter = new SectionsPagerAdapter(
                 getSupportFragmentManager());
@@ -49,7 +52,7 @@ public class mem_cure_main extends AppCompatActivity implements mem_cure_fragmen
         btn_cure_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog_1 = new mem_cure_fragment_1_dialog(context);
+                dialog_1 = new mem_cure_fragment_1_dialog(context, instance);
                 dialog_1.setTitle("新增");
                 dialog_1.setYesOnclickListener("確定", new mem_cure_fragment_1_dialog.onYesOnclickListener() {
                     @Override
@@ -68,7 +71,7 @@ public class mem_cure_main extends AppCompatActivity implements mem_cure_fragmen
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(ChemCure item) {
 
     }
 

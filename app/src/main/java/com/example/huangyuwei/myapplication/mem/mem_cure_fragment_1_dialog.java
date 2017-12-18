@@ -4,9 +4,12 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
@@ -19,13 +22,20 @@ import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.database.CancerDatabase;
 import com.example.huangyuwei.myapplication.database.ChemCure;
 
+import static android.content.ContentValues.TAG;
+import static com.example.huangyuwei.myapplication.MainActivity.cb;
+
+import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by user-pc on 2017/12/10.
  */
 
 public class mem_cure_fragment_1_dialog extends Dialog {
+    private mem_cure_main instance;
+
     private Context context;
     private Button btn_select_date, btn_confirm;
     private TextView dateText;
@@ -38,17 +48,21 @@ public class mem_cure_fragment_1_dialog extends Dialog {
     private onYesOnclickListener yesOnclickListener;//确定按钮被点击了的监听器
 
     private String noStr, yesStr;
+    private SimpleDateFormat datedbFormatter;
 
 
-    public mem_cure_fragment_1_dialog(@NonNull Context context) {
+    public mem_cure_fragment_1_dialog(@NonNull Context context, mem_cure_main instance) {
         super(context);
+        this.instance = instance;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_mem_cure_fragment_1_edit);
         context = getContext();
+        datedbFormatter = new SimpleDateFormat("yyyyMMdd");
         dateText = (TextView) findViewById(R.id.dateText);
         checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
@@ -122,7 +136,12 @@ public class mem_cure_fragment_1_dialog extends Dialog {
                                     .show();
                         }
                         else{
-
+                            ChemCure chemCure = new ChemCure();
+                            chemCure.date_id =Integer.parseInt(String.valueOf(mYear)+String.valueOf(mMonth)+String.valueOf(mDay));
+                            chemCure.cure=data;
+                            addChemCure(cb, chemCure);
+                            Log.i(TAG, "1231 "+mYear+" "+mMonth+" "+mDay);
+                            Log.i(TAG, "1231 "+chemCure.date_id+" "+chemCure.cure);
                         }
                     }
                 }
@@ -171,10 +190,10 @@ public class mem_cure_fragment_1_dialog extends Dialog {
                 + String.valueOf(dayOfMonth);
     }
 
-    private ChemCure addFoodTime(final CancerDatabase db, ChemCure cure) {
+    private ChemCure addChemCure(final CancerDatabase db, ChemCure cure) {
         db.beginTransaction();
         try {
-            db.chemCureDao().insertFoodTime(cure);
+            db.chemCureDao().insertChemCure(cure);
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
@@ -182,7 +201,7 @@ public class mem_cure_fragment_1_dialog extends Dialog {
         return cure;
     }
 
-    private ChemCure deleteFoodTime(final CancerDatabase db, ChemCure cure) {
+    private ChemCure deleteChemCure(final CancerDatabase db, ChemCure cure) {
         db.beginTransaction();
         try {
             db.chemCureDao().delete(cure);
@@ -193,10 +212,10 @@ public class mem_cure_fragment_1_dialog extends Dialog {
         return cure;
     }
 
-    private ChemCure updateFoodTime(final CancerDatabase db, ChemCure cure) {
+    private ChemCure updateChemCure(final CancerDatabase db, ChemCure cure) {
         db.beginTransaction();
         try {
-            db.chemCureDao().updateFoodTime(cure);
+            db.chemCureDao().updateChemCure(cure);
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();

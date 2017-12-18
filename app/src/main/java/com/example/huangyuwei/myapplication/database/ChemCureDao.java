@@ -13,14 +13,15 @@ import java.util.List;
  */
 @Dao
 public interface ChemCureDao {
+
     @Query("SELECT * FROM ChemCure")
-    List<ChemCure> getAllFoodTime();
+    List<ChemCure> getAllChemCure();
 
     @Insert
-    void insertFoodTime(ChemCure... ChemCures);
+    void insertChemCure(ChemCure... ChemCures);
 
     @Update
-    void updateFoodTime(ChemCure... ChemCures);
+    void updateChemCure(ChemCure... ChemCures);
 
     @Delete
     void delete(ChemCure... ChemCures);

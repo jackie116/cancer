@@ -16,7 +16,7 @@ import java.io.IOException;
  * Created by tom on 26/11/2017.
  */
 
-@Database(entities = {FoodTime.class,MoodTime.class,TmpTime.class}, version = 3)
+@Database(entities = {FoodTime.class,MoodTime.class,TmpTime.class, ChemCure.class}, version = 5)
 
 public abstract class CancerDatabase extends RoomDatabase {
 
