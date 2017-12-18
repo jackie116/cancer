@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.database.CancerDatabase;
+import com.example.huangyuwei.myapplication.database.ChemCure;
 import com.example.huangyuwei.myapplication.mem.dummy.DummyContent;
-import com.example.huangyuwei.myapplication.mem.dummy.DummyContent.DummyItem;
+
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -21,7 +24,9 @@ import com.example.huangyuwei.myapplication.mem.dummy.DummyContent.DummyItem;
  * interface.
  */
 public class mem_cure_fragment_1 extends Fragment {
-
+    private mem_cure_fragment_1 instance;
+    private Context context;
+    private RecyclerView recyclerView;
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
@@ -61,14 +66,18 @@ public class mem_cure_fragment_1 extends Fragment {
 
         // Set the adapter
         if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            instance = this;
+            context = view.getContext();
+            recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new mem_cure_fragment_1_ItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            List<ChemCure> list = CancerDatabase.getInMemoryDatabase(context).chemCureDao().getAllChemCure();
+
+            recyclerView.setAdapter(new mem_cure_fragment_1_ItemRecyclerViewAdapter(list, mListener, getContext()));
+
 
         }
         return view;
@@ -104,6 +113,12 @@ public class mem_cure_fragment_1 extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(ChemCure item);
+    }
+
+    public void refreshList(){
+        List<ChemCure> list = CancerDatabase.getInMemoryDatabase(context).chemCureDao().getAllChemCure();
+        recyclerView.setAdapter(new mem_cure_fragment_1_ItemRecyclerViewAdapter(list, mListener, getContext()));
+
     }
 }
