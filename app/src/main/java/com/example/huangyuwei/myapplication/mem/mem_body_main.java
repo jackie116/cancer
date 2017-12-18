@@ -45,15 +45,18 @@ public class mem_body_main extends AppCompatActivity {
                     fragment = new mem_body_weight();
                     break;
                 case 1:
-                    fragment = new mem_body_tmp();
+                    fragment= new mem_body_weight_test();
                     break;
                 case 2:
-                    fragment = new mem_body_blood();
+                    fragment = new mem_body_tmp();
                     break;
                 case 3:
-                    fragment = new mem_body_arm();
+                    fragment = new mem_body_blood();
                     break;
                 case 4:
+                    fragment = new mem_body_arm();
+                    break;
+                case 5:
                     fragment = new mem_body_symptom();
                     break;
             }
@@ -63,7 +66,7 @@ public class mem_body_main extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            return 6;
         }
 
         @Override
@@ -72,12 +75,14 @@ public class mem_body_main extends AppCompatActivity {
                 case 0:
                     return "體重";
                 case 1:
-                    return "體溫";
+                    return "BMI測量";
                 case 2:
-                    return "血液";
+                    return "體溫";
                 case 3:
-                    return "手臂";
+                    return "血液";
                 case 4:
+                    return "手臂";
+                case 5:
                     return "症狀";
 
                 default:

@@ -80,7 +80,6 @@
         <activity android:name=".eat.eat_main" />
         <activity android:name=".eat.eat_show" />
         <activity android:name=".mem.self_main" />
-        <activity android:name=".mem.mem_body" />
         <activity android:name=".mem.mem_body_main" />
         <activity
             android:name=".mem.mem_food_main"

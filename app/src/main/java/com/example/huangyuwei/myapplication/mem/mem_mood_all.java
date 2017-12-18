@@ -65,6 +65,7 @@ public class mem_mood_all extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
         super.onActivityCreated(savedInstanceState);
 
         dateFormatter = new SimpleDateFormat("MM-dd-yyyy", Locale.TAIWAN);

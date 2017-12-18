@@ -88,8 +88,22 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="新增"></Button>
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="張老師專線1980"
+                    android:textColor="@android:color/holo_red_dark"/>
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="生命線1995"
+                    android:textColor="@android:color/holo_red_dark"/>
 
             </LinearLayout>
+
+
         </ScrollView>
 
 </FrameLayout>

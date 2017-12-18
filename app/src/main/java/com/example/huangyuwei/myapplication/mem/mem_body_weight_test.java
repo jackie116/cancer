@@ -2,10 +2,14 @@ package com.example.huangyuwei.myapplication.mem;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,29 +17,30 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.huangyuwei.myapplication.R;
+
 import java.text.NumberFormat;
 
 
-import com.example.huangyuwei.myapplication.R;
-
-
-public class mem_body extends AppCompatActivity {
-
-
+public class mem_body_weight_test extends Fragment {
     EditText edtcm,edtkg;
     TextView edtresult;
-    Button btncount;
+    private Button btncount;
     private LinearLayout linear_tab;
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mem_body_main);
 
-        edtcm=(EditText)findViewById(R.id.input_cm);
-        edtkg=(EditText)findViewById(R.id.input_kg);
-        edtresult=(TextView)findViewById(R.id.result) ;
-        btncount=(Button)findViewById(R.id.count);
-        linear_tab = (LinearLayout)findViewById(R.id.linear_tab_signup);
+    public mem_body_weight_test() {
+        // Required empty public constructor
+    }
+
+    public void onActivityCreated(@Nullable Bundle savedInstanceState){
+        super.onActivityCreated(savedInstanceState);
+        edtcm=(EditText) getActivity().findViewById(R.id.input_cm);
+        edtkg=(EditText)getActivity().findViewById(R.id.input_kg);
+        edtresult=(TextView)getActivity().findViewById(R.id.result) ;
+        btncount=(Button) getActivity().findViewById(R.id.count);
+
+        linear_tab = (LinearLayout)getActivity().findViewById(R.id.linear_tab);
 
         linear_tab.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -46,12 +51,13 @@ public class mem_body extends AppCompatActivity {
             }
         });
 
+
         btncount.setOnClickListener(new View.OnClickListener() {
             float cm,m,kg,bmi;
             @Override
             public void onClick(View v) {
                 if(edtcm.getText().toString().matches("")||edtkg.getText().toString().matches("")){
-                    Toast.makeText(getApplicationContext(),"輸入不可為空", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"輸入不可為空", Toast.LENGTH_SHORT).show();
                 }else{
                     cm=Float.parseFloat(edtcm.getText().toString());
                     m=cm/100;
@@ -71,6 +77,15 @@ public class mem_body extends AppCompatActivity {
             }
         });
 
-
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+        return inflater.inflate(R.layout.fragment_mem_body_weight_test, container, false);
+    }
+
+
 }
