@@ -16,14 +16,14 @@ import java.io.IOException;
  * Created by tom on 26/11/2017.
  */
 
-@Database(entities = {FoodTime.class,MoodTime.class,WeightTime.class,TmpTime.class}, version = 6)
+@Database(entities = {FoodTime.class,MoodTime.class,TmpTime.class, ChemCure.class}, version = 7)
 
 public abstract class CancerDatabase extends RoomDatabase {
 
     private static CancerDatabase INSTANCE;
     public abstract FoodTimeDao foodTimeDao();
     public abstract MoodTimeDao moodTimeDao();
-    public abstract WeightTimeDao weightTimeDao();
+    public abstract ChemCureDao chemCureDao();
     public abstract TmpTimeDao tmpTimeDao();
     public static CancerDatabase getInMemoryDatabase(Context context) {
         if (INSTANCE == null) {
