@@ -332,12 +332,6 @@
                 android:layout_height="100dp"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/next_pg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="下一頁"
-                android:textSize="18sp" />
 
 
         </LinearLayout>

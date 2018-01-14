@@ -9,19 +9,19 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 /**
- * Created by huangyuwei on 2017/12/18.
+ * Created by huangyuwei on 2018/1/14.
  */
 @Dao
-public interface TmpTimeDao {
-    @Query("SELECT * FROM tmptime")
-    List<TmpTime> getAllTmpTime();
+public interface BloodTimeDao {
+    @Query("SELECT * FROM bloodtime")
+    List<BloodTime> getAllBloodTime();
 
     @Insert
-    void insertTmpTime(TmpTime... tmpTimes);
+    void insertBloodTime(BloodTime... bloodTimes);
 
     @Update
-    void updateTmpTime(TmpTime... tmpTimes);
+    void updateBloodTime(BloodTime... bloodTimes);
 
     @Delete
-    void delete(TmpTime... tmpTimes);
+    void delete(BloodTime... bloodTimes);
 }

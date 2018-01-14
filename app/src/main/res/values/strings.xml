@@ -11,5 +11,6 @@
     <string name="seek_to_hint">Seconds</string>
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_mem_food_new">mem_food_new</string>
+    <string name="title_activity_move_main">move_main</string>
 
 </resources>

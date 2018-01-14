@@ -69,8 +69,8 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/tmp_date_label"
-                            android:layout_width="130dp"
+                            android:id="@+id/tmp_time_label"
+                            android:layout_width="191dp"
                             android:layout_height="30dp"
                             android:layout_span="2"
                             android:background="@drawable/top_shape"
@@ -78,26 +78,12 @@
                             android:maxLines="5"
                             android:padding="5dp"
                             android:scrollHorizontally="false"
-                            android:text="日期"
-                            android:textAlignment="center" />
-
-                        <TextView
-                            android:id="@+id/tmp_time_label"
-                            android:layout_width="105dp"
-                            android:layout_height="30dp"
-                            android:layout_toRightOf="@id/tmp_date_label"
-                            android:background="@drawable/top_shape"
-                            android:ems="10"
-                            android:inputType="textMultiLine"
-                            android:maxLines="5"
-                            android:padding="5dp"
                             android:text="時間"
                             android:textAlignment="center" />
 
-
                         <TextView
                             android:id="@+id/tmp_degree_label"
-                            android:layout_width="147dp"
+                            android:layout_width="191dp"
                             android:layout_height="30dp"
                             android:layout_toRightOf="@id/tmp_time_label"
                             android:background="@drawable/top_shape"
@@ -108,6 +94,7 @@
                             android:text="溫度"
                             android:textAlignment="center" />
 
+
                     </RelativeLayout>
                 </TableRow>
 
@@ -117,7 +104,6 @@
                 android:id="@+id/addTmpDay"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:onClick="sendFeedback"
                 android:text="新增"></Button>
 
         </LinearLayout>

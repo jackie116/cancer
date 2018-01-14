@@ -35,17 +35,8 @@
             android:name=".laugh.laugh"
             android:label="笑吧" />
         <activity android:name=".link.link" />
-        <activity android:name=".move.move" />
         <activity android:name=".talk.talk" />
         <activity android:name=".ask.ask" />
-        <activity
-            android:name=".move.move_exercise_movie"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".move.move_rehab_movie"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".laugh.laugh_music_movie"
             android:configChanges="orientation|screenSize"
@@ -80,21 +71,29 @@
         <activity android:name=".eat.eat_main" />
         <activity android:name=".eat.eat_show" />
         <activity android:name=".mem.self_main" />
-        <activity android:name=".mem.mem_body" />
         <activity android:name=".mem.mem_body_main" />
-        <activity android:name=".mem.mood_emoji" />
-        <activity android:name=".mem.mood_ask" />
         <activity
             android:name=".mem.mem_food_main"
             android:label="@string/title_activity_mem_food_new" />
         <activity android:name=".mem.mood_qa" />
-
         <activity android:name=".mem.mem_mood_main" />
-
         <activity android:name=".mem.mem_mine" />
         <activity android:name=".mem.mem_cure" />
-        <activity android:name=".mem.mem_cure_main"></activity>
-
+        <activity android:name=".mem.mem_cure_main" />
+        <activity android:name=".laugh.laugh_fashion_bra" />
+        <activity android:name=".laugh.laugh_fashion_hair" />
+        <activity android:name=".laugh.laugh_night_message" />
+        <activity android:name=".laugh.laugh_night_mind" />
+        <activity android:name=".laugh.laugh_night_sleep" />
+        <activity android:name=".move.move_main" />
+        <activity
+            android:name=".move.move_rehab"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".move.move_exercise"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

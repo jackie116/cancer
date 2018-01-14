@@ -57,7 +57,7 @@ public class laugh_night_movie extends AppCompatActivity {
         // 設定轉址的網頁還是由WebView開啟，不要用外部的瀏覽器。
         mWebView.setWebViewClient(new WebViewClient());
 
-        mWebView.loadUrl("https://youtu.be/6gLrimvTQug?list=PL8XfZflYfwK0lWI72h_lO3nLpzLcl6_1d");
+        mWebView.loadUrl("https://www.youtube.com/watch?v=icEygCcCEho&index=1&list=PLCcDqyTvTbXCPUtgDg6ESdu_0CmF1d1mH");
 
     }
 

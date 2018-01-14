@@ -12,16 +12,16 @@ import java.util.List;
  * Created by huangyuwei on 2017/12/18.
  */
 @Dao
-public interface TmpTimeDao {
-    @Query("SELECT * FROM tmptime")
-    List<TmpTime> getAllTmpTime();
+public interface WeightTimeDao {
+    @Query("SELECT * FROM weighttime")
+    List<WeightTime> getAllWeightTime();
 
     @Insert
-    void insertTmpTime(TmpTime... tmpTimes);
+    void insertWeightTime(WeightTime... weightTimes);
 
     @Update
-    void updateTmpTime(TmpTime... tmpTimes);
+    void updateWeightTime(WeightTime... weightTimes);
 
     @Delete
-    void delete(TmpTime... tmpTimes);
+    void delete(WeightTime... weightTimes);
 }

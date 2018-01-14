@@ -31,7 +31,7 @@ public class talk_group extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        btn_2movie= (Button)getView().findViewById(R.id.btn_2movie);
+        btn_2movie= (Button)getView().findViewById(R.id.btn_sleep);
         btn_2movie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
