@@ -18,7 +18,7 @@ public class mood_qa extends AppCompatActivity {
 
     private RadioGroup radioGroup1,radioGroup2,radioGroup3,radioGroup4,radioGroup5;
     private RadioButton ans_1,ans_2,ans_3,ans_4,ans_5;
-    Button submit,next_pg;
+    Button submit;
     private int selected;
     private int answer;
     TextView score,result;
@@ -41,7 +41,6 @@ public class mood_qa extends AppCompatActivity {
 
 
         submit = (Button) findViewById(R.id.submit);
-        next_pg= (Button) findViewById(R.id.next_pg);
 
         submit.setOnClickListener(new View.OnClickListener() {
 

@@ -26,10 +26,5 @@
         android:hint="熱量"
         android:inputType="numberDecimal"></EditText>
 
-    <!--<Button-->
-        <!--android:id="@+id/saveFoodDay"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:onClick="sendFeedback"-->
-        <!--android:text="儲存"></Button>-->
+
 </LinearLayout>

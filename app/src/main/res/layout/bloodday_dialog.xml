@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tmpday_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/EditTextDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="日期"
+        android:inputType="date"></EditText>
+
+    <EditText
+        android:id="@+id/EditTextWBC"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="白血球(WBC)"
+        android:inputType="numberDecimal"></EditText>
+
+    <EditText
+        android:id="@+id/EditTextHB"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="血紅素(HB)"
+        android:inputType="numberDecimal"></EditText>
+    <EditText
+        android:id="@+id/EditTextPLT"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="血小板(PLT)"
+        android:inputType="text"></EditText>
+
+
+
+</LinearLayout>

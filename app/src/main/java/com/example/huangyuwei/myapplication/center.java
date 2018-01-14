@@ -17,7 +17,7 @@ import com.example.huangyuwei.myapplication.eat.eat_main;
 import com.example.huangyuwei.myapplication.laugh.laugh;
 import com.example.huangyuwei.myapplication.link.link;
 import com.example.huangyuwei.myapplication.mem.self_main;
-import com.example.huangyuwei.myapplication.move.move;
+import com.example.huangyuwei.myapplication.move.move_main;
 import com.example.huangyuwei.myapplication.talk.talk;
 
 public class center extends AppCompatActivity {
@@ -104,7 +104,7 @@ public class center extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(center.this  , move.class);
+                intent.setClass(center.this  , move_main.class);
                 startActivity(intent);
             }
         });

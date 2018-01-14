@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.huangyuwei.myapplication.R;
 
 public class mem_food_main extends AppCompatActivity {
+
     private String TAG="飲食";
 
     SectionsPagerAdapter mSectionsPagerAdapter;

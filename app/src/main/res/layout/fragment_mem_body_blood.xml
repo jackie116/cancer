@@ -1,0 +1,110 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.huangyuwei.myapplication.mem.mem_body_blood">
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Put form controls here-->
+
+
+            <TableLayout
+                android:id="@+id/blood_daytable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/row_shape">
+
+
+                <TableRow
+                    android:id="@+id/blood_time_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/blood_date_label"
+                            android:layout_width="90dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_span="2"
+                            android:background="@drawable/top_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="日期"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/blood_WBC_label"
+                            android:layout_width="90dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/blood_date_label"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="白血球(WBC)"
+                            android:textAlignment="center" />
+
+
+                        <TextView
+                            android:id="@+id/blood_HB_label"
+                            android:layout_width="90dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/blood_WBC_label"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="血紅素(HB)"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/blood_PLT_label"
+                            android:layout_width="90dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/blood_HB_label"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="血小板(PLT)"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+
+            </TableLayout>
+            <Button
+                android:id="@+id/addBloodDay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="新增"></Button>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

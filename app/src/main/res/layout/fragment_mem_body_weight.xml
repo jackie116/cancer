@@ -1,0 +1,110 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.huangyuwei.myapplication.mem.mem_body_weight">
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Put form controls here-->
+
+
+            <TableLayout
+                android:id="@+id/weight_daytable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/row_shape">
+
+
+                <TableRow
+                    android:id="@+id/weight_time_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/weight_date_label"
+                            android:layout_width="90dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_span="2"
+                            android:background="@drawable/top_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="日期"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/weight_kg_label"
+                            android:layout_width="90dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/weight_date_label"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="體重"
+                            android:textAlignment="center" />
+
+
+                        <TextView
+                            android:id="@+id/weight_bmi_label"
+                            android:layout_width="90dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/weight_kg_label"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="BMI"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/weight_result_label"
+                            android:layout_width="90dp"
+                            android:layout_height="30dp"
+                            android:layout_toRightOf="@id/weight_bmi_label"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="結果"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+
+            </TableLayout>
+            <Button
+                android:id="@+id/addWeightDay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="新增"></Button>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

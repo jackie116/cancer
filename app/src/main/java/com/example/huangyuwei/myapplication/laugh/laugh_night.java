@@ -15,7 +15,10 @@ import com.example.huangyuwei.myapplication.R;
 public class laugh_night extends Fragment {
 
 
-    Button btn_2movie;
+    Button btn_sleep;
+    Button btn_relax;
+    Button btn_message;
+    Button btn_mind;
     public laugh_night() {
         // Required empty public constructor
     }
@@ -31,12 +34,44 @@ public class laugh_night extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        btn_2movie= (Button)getView().findViewById(R.id.btn_2movie);
-        btn_2movie.setOnClickListener(new View.OnClickListener() {
+
+
+        btn_sleep= (Button)getView().findViewById(R.id.btn_sleep);
+        btn_sleep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity() , laugh_night_sleep.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_relax= (Button)getView().findViewById(R.id.btn_relax);
+        btn_relax.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getActivity() , laugh_night_movie.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_message= (Button)getView().findViewById(R.id.btn_message);
+        btn_message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity() , laugh_night_message.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_mind= (Button)getView().findViewById(R.id.btn_mind);
+        btn_mind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity() , laugh_night_mind.class);
                 startActivity(intent);
             }
         });

@@ -253,12 +253,15 @@ public class mem_food_edit extends Fragment{
                         final EditText timetext = (EditText) dialoglayout.findViewById(R.id.EditTextTime);
                         String time = timetext.getText().toString();
                         Date timedb = Calendar.getInstance().getTime(); //initialize
+                        //Log.d("TAG",time.toString());
+                        Log.d("TAG",timedb.toString());
                         try {
                             timedb = timeFormatter.parse(time);
                         } catch (ParseException e){
 
                         }
 
+                        Log.d("TAG",timedb.toString());
 
                         String timeindb=timedbFormatter.format(timedb);
 
@@ -279,7 +282,7 @@ public class mem_food_edit extends Fragment{
                         //addFoodDay(CancerDatabase.getInMemoryDatabase(getContext()),day);
                         boolean unique=true;
                         for(int i=0;i<fooddays.size();i++){
-                            if(fooddays.get(i)!=fooddata) {
+                            if(fooddays.get(i) != fooddata) {
                                 if (fooddays.get(i).date_id == ftime.date_id && fooddays.get(i).time == ftime.time)
                                     unique = false;
                             }
@@ -389,7 +392,7 @@ public class mem_food_edit extends Fragment{
     private void findViewsById() {
         tablelabel = (TextView) getActivity().findViewById(R.id.food_day_label);
         foodtable = (TableLayout) getActivity().findViewById(R.id.food_daytable);
-       // saveFood=(Button)getView().findViewById(R.id.saveFoodDay);
+
         addFood=(Button)getView().findViewById(R.id.addFoodDay);
         fromDateEtxt = (EditText) getView().findViewById(R.id.EditTextDate);
     }
@@ -440,9 +443,6 @@ public class mem_food_edit extends Fragment{
             }
 
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
-
-
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

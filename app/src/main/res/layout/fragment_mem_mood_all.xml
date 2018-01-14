@@ -1,0 +1,113 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.huangyuwei.myapplication.mem.mem_mood_all">
+
+
+        <ScrollView
+            android:id="@+id/ScrollView01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--Put form controls here-->
+
+
+
+                <TableLayout
+                    android:id="@+id/mood_daytable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/row_shape">
+
+
+                    <TableRow
+                        android:id="@+id/mood_time_row"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/row_shape"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/mood_date_label"
+                                android:layout_width="130dp"
+                                android:layout_height="30dp"
+                                android:layout_span="2"
+                                android:background="@drawable/top_shape"
+                                android:inputType="textMultiLine"
+                                android:maxLines="5"
+                                android:padding="5dp"
+                                android:scrollHorizontally="false"
+                                android:text="日期"
+                                android:textAlignment="center" />
+
+                            <TextView
+                                android:id="@+id/mood_score_label"
+                                android:layout_width="105dp"
+                                android:layout_height="30dp"
+                                android:layout_toRightOf="@id/mood_date_label"
+                                android:background="@drawable/top_shape"
+                                android:ems="10"
+                                android:inputType="textMultiLine"
+                                android:maxLines="5"
+                                android:padding="5dp"
+                                android:text="心情溫度計"
+                                android:textAlignment="center" />
+
+
+                            <TextView
+                                android:id="@+id/mood_dairy_label"
+                                android:layout_width="147dp"
+                                android:layout_height="30dp"
+                                android:layout_toRightOf="@id/mood_score_label"
+                                android:background="@drawable/top_shape"
+                                android:ems="10"
+                                android:inputType="textMultiLine"
+                                android:maxLines="5"
+                                android:padding="5dp"
+                                android:text="心情日記"
+                                android:textAlignment="center" />
+
+                        </RelativeLayout>
+                    </TableRow>
+
+
+                </TableLayout>
+                <Button
+                    android:id="@+id/addMoodDay"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="新增"></Button>
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="張老師專線1980"
+                    android:textColor="@android:color/holo_red_dark"/>
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="生命線1995"
+                    android:textColor="@android:color/holo_red_dark"/>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+</FrameLayout>
+
+
+
+
