@@ -16,7 +16,7 @@ import java.io.IOException;
  * Created by tom on 26/11/2017.
  */
 
-@Database(entities = {FoodTime.class,MoodTime.class,TmpTime.class, ChemCure.class,WeightTime.class,BloodTime.class,SportTime.class}, version = 10)
+@Database(entities = {FoodTime.class,MoodTime.class,TmpTime.class, ChemCure.class,WeightTime.class,BloodTime.class}, version = 11)
 
 public abstract class CancerDatabase extends RoomDatabase {
 
@@ -27,7 +27,6 @@ public abstract class CancerDatabase extends RoomDatabase {
     public abstract WeightTimeDao weightTimeDao();
     public abstract TmpTimeDao tmpTimeDao();
     public abstract BloodTimeDao bloodTimeDao();
-    public abstract SportTimeDao sportTimeDao();
     public static CancerDatabase getInMemoryDatabase(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context,CancerDatabase.class,"cancerdatabase")

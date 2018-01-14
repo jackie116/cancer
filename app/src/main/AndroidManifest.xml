@@ -94,7 +94,6 @@
             android:name=".move.move_exercise"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".mem.mem_sport"></activity>
     </application>
 
 </manifest>
