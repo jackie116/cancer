@@ -69,7 +69,7 @@ tools:context="com.example.huangyuwei.myapplication.mem.mem_cure_fragment_1">
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/c_p_place"
+                        android:id="@+id/c_b_cure"
                         android:layout_width="130dp"
                         android:layout_height="30dp"
                         android:layout_span="2"
@@ -82,10 +82,10 @@ tools:context="com.example.huangyuwei.myapplication.mem.mem_cure_fragment_1">
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/c_p_start"
+                        android:id="@+id/c_b_start"
                         android:layout_width="250dp"
                         android:layout_height="30dp"
-                        android:layout_toRightOf="@id/c_p_place"
+                        android:layout_toRightOf="@id/c_b_cure"
                         android:background="@drawable/top_shape"
                         android:ems="10"
                         android:inputType="textMultiLine"

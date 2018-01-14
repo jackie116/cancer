@@ -69,7 +69,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/c_p_place"
+                            android:id="@+id/c_b_cure"
                             android:layout_width="130dp"
                             android:layout_height="30dp"
                             android:layout_span="2"
@@ -82,12 +82,12 @@
                             android:textAlignment="center" />
 
                         <TextView
-                            android:id="@+id/c_p_start"
+                            android:id="@+id/c_b_start"
                             android:layout_width="125dp"
                             android:layout_height="30dp"
                             android:layout_alignParentTop="true"
-                            android:layout_toEndOf="@+id/c_p_place"
-                            android:layout_toRightOf="@+id/c_p_place"
+                            android:layout_toEndOf="@+id/c_b_cure"
+                            android:layout_toRightOf="@+id/c_b_cure"
                             android:background="@drawable/top_shape"
                             android:ems="10"
                             android:inputType="textMultiLine"
@@ -101,8 +101,8 @@
                             android:layout_width="120dp"
                             android:layout_height="30dp"
                             android:layout_alignParentTop="true"
-                            android:layout_toEndOf="@+id/c_p_start"
-                            android:layout_toRightOf="@+id/c_p_start"
+                            android:layout_toEndOf="@+id/c_b_start"
+                            android:layout_toRightOf="@+id/c_b_start"
                             android:background="@drawable/top_shape"
                             android:ems="10"
                             android:inputType="textMultiLine"

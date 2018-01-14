@@ -133,49 +133,50 @@ public class mem_cure_fragment_1 extends Fragment {
                         final EditText datetext = (EditText) dialoglayout.findViewById(R.id.dateText);
                         String date = datetext.getText().toString();
                         Log.i(TAG,  "1231 dateTExt  "+date);
-                        //Date datedb = Calendar.getInstance().getTime(); //initialize
+                        Date datedb = Calendar.getInstance().getTime(); //initialize
                         try {
-                            Date datedb= dateFormatter.parse(date);
+                            datedb = dateFormatter.parse(date);
                             Log.i(TAG,  "1231 dateTdb  "+datedb);
-                            Log.i(TAG,  "1231 dateTdb  "+datedb);
 
-                            String dateindb=datedbFormatter.format(datedb);
-                            Log.i(TAG,  "1231 dateTindb  "+dateindb);
-
-                            Date timedb = Calendar.getInstance().getTime();
-                            String timeindb=timedbFormatter.format(timedb);
-                            Log.i(TAG,  "1231   "+timeindb);
-                            final CheckBox cb1 = (CheckBox) dialoglayout.findViewById(R.id.checkBox1);
-                            final CheckBox cb2 = (CheckBox) dialoglayout.findViewById(R.id.checkBox2);
-                            final CheckBox cb3 = (CheckBox) dialoglayout.findViewById(R.id.checkBox3);
-                            final CheckBox cb4 = (CheckBox) dialoglayout.findViewById(R.id.checkBox4);
-
-                            String data = "";
-                            if(cb1.isChecked()){
-                                data+=cb1.getText().toString();
-                            }
-                            if(cb2.isChecked()){
-                                data+=cb2.getText().toString();
-                            }
-                            if(cb3.isChecked()){
-                                data+=cb3.getText().toString();
-                            }
-                            if(cb4.isChecked()){
-                                data+=cb4.getText().toString();
-                            }
-
-                            ChemCure chemCure = new ChemCure();
-
-                            chemCure.date_id = Integer.parseInt(dateindb);
-                            chemCure.time = Integer.parseInt(timeindb);
-                            chemCure.cure = data;
-                            Log.i(TAG,  "1231 save   "+chemCure.date_id+" " +chemCure.time+" "+ chemCure.cure);
-                            //addFoodDay(CancerDatabase.getInMemoryDatabase(getContext()),day);
-                            addChemCure(cb, chemCure);
-                            refreshTable();
                         } catch (ParseException e){
                             e.getErrorOffset();
                         }
+                        Log.i(TAG,  "1231 dateTdb  "+datedb);
+
+                        String dateindb=datedbFormatter.format(datedb);
+                        Log.i(TAG,  "1231 dateTindb  "+dateindb);
+
+                        Date timedb = Calendar.getInstance().getTime();
+                        String timeindb=timedbFormatter.format(timedb);
+                        Log.i(TAG,  "1231   "+timeindb);
+                        final CheckBox cb1 = (CheckBox) dialoglayout.findViewById(R.id.checkBox1);
+                        final CheckBox cb2 = (CheckBox) dialoglayout.findViewById(R.id.checkBox2);
+                        final CheckBox cb3 = (CheckBox) dialoglayout.findViewById(R.id.checkBox3);
+                        final CheckBox cb4 = (CheckBox) dialoglayout.findViewById(R.id.checkBox4);
+
+                        String data = "";
+                        if(cb1.isChecked()){
+                            data+=cb1.getText().toString();
+                        }
+                        if(cb2.isChecked()){
+                            data+=cb2.getText().toString();
+                        }
+                        if(cb3.isChecked()){
+                            data+=cb3.getText().toString();
+                        }
+                        if(cb4.isChecked()){
+                            data+=cb4.getText().toString();
+                        }
+
+                        ChemCure chemCure = new ChemCure();
+
+                        chemCure.date_id = Integer.parseInt(dateindb);
+                        chemCure.time = Integer.parseInt(timeindb);
+                        chemCure.cure = data;
+                        Log.i(TAG,  "1231 save   "+chemCure.date_id+" " +chemCure.time+" "+ chemCure.cure);
+                        //addFoodDay(CancerDatabase.getInMemoryDatabase(getContext()),day);
+                        addChemCure(cb, chemCure);
+                        refreshTable();
 
 
                     }
@@ -460,8 +461,8 @@ public class mem_cure_fragment_1 extends Fragment {
         return cure;
     }
     private String setDateFormat(int year,int monthOfYear,int dayOfMonth){
-        return String.valueOf(year) + "."
-                + String.valueOf(monthOfYear + 1) + "."
+        return String.valueOf(year) + "-"
+                + String.valueOf(monthOfYear + 1) + "-"
                 + String.valueOf(dayOfMonth);
     }
 
@@ -476,10 +477,10 @@ public class mem_cure_fragment_1 extends Fragment {
         ChemCures.clear();
         ChemCures=CancerDatabase.getInMemoryDatabase(getContext()).chemCureDao().getAllChemCure();
         for (int i = 0; i <ChemCures.size(); i++) {
-            if(Integer.parseInt(datedbFormatter.format(currentDateView)) == ChemCures.get(i).date_id) {
+            //if(Integer.parseInt(datedbFormatter.format(currentDateView)) == ChemCures.get(i).date_id) {
                 Log.d("TAG", ChemCures.get(i).date_id + " " + ChemCures.get(i).cure);
                 addTableRow(c_c_table, ChemCures.get(i));
-            }
+            //}
         }
     }
 }
