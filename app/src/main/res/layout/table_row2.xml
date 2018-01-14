@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/Phone"
-            android:layout_width="120dp"
+            android:layout_width="250dp"
             android:layout_height="100dp"
             android:layout_toRightOf="@id/Name"
             android:background="@drawable/cell_shape"
@@ -43,19 +43,6 @@
             android:text="" />
 
 
-        <TextView
-            android:id="@+id/Address"
-            android:layout_width="120dp"
-            android:layout_height="100dp"
-            android:layout_toRightOf="@id/Phone"
-            android:background="@drawable/cell_shape"
-            android:clickable="false"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:longClickable="false"
-            android:maxLines="5"
-            android:padding="5dp"
-            android:text="" />
 
     </RelativeLayout>
 

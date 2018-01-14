@@ -32,9 +32,8 @@ public class mem_cure_main extends AppCompatActivity implements mem_cure_fragmen
     ViewPager mViewPager;
     Fragment fragment;
     int selectPos;
-    Button btn_cure_edit;
 
-    private mem_cure_fragment_1_dialog dialog_1;
+    //private mem_cure_fragment_1_dialog dialog_1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,21 +47,6 @@ public class mem_cure_main extends AppCompatActivity implements mem_cure_fragmen
         // 設定 ViewPager 和 Pager Adapter.
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        btn_cure_edit = (Button) findViewById(R.id.btn_cure_edit);
-        btn_cure_edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog_1 = new mem_cure_fragment_1_dialog(context, instance);
-                dialog_1.setTitle("新增");
-                dialog_1.setYesOnclickListener("確定", new mem_cure_fragment_1_dialog.onYesOnclickListener() {
-                    @Override
-                    public void onYesClick() {
-                        dialog_1.dismiss();
-                    }
-                });
-                dialog_1.show();
-            }
-        });
     }
 
     @Override
