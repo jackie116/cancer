@@ -90,7 +90,7 @@ public class mem_cure_fragment_1_edit extends Fragment {
         checkBox2 = (CheckBox) view.findViewById(R.id.checkBox2);
         checkBox3 = (CheckBox) view.findViewById(R.id.checkBox3);
         checkBox4 = (CheckBox) view.findViewById(R.id.checkBox4);
-        btn_select_date = (Button) view.findViewById(R.id.btn_cure_1_date);
+        //btn_select_date = (Button) view.findViewById(R.id.btn_cure_1_date);
         btn_select_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
