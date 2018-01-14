@@ -57,7 +57,7 @@ public class laugh_music_movie extends AppCompatActivity {
         // 設定轉址的網頁還是由WebView開啟，不要用外部的瀏覽器。
         mWebView.setWebViewClient(new WebViewClient());
 
-        mWebView.loadUrl("https://youtu.be/UsNOIeu49ds?list=PL8XfZflYfwK2t8rl9q1HFvRn8DVUjNQjY");
+        mWebView.loadUrl("https://www.youtube.com/playlist?list=PLCcDqyTvTbXBii3LnjNj78gQtw8auMse4");
 
 
 

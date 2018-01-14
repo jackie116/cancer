@@ -72,20 +72,13 @@ public class mem_body_weight extends Fragment {
 
         dateFormatter = new SimpleDateFormat("MM-dd-yyyy", Locale.TAIWAN);
         datedbFormatter = new SimpleDateFormat("yyyyMMdd");
-        findViewsById();
 
-        //fromDateEtxt.setInputType(InputType.TYPE_NULL);
-        //fromDateEtxt.requestFocus();
-        //setDateField();
-        //fromDateEtxt.setText(dateFormatter.format(Calendar.getInstance().getTime()));
+        findViewsById();
 
         weightdays= CancerDatabase.getInMemoryDatabase(getContext()).weightTimeDao().getAllWeightTime();
         currentDateView= Calendar.getInstance().getTime();
         for (int i = 0; i <weightdays.size(); i++) {
-            //if(Integer.parseInt(datedbFormatter.format(currentDateView)) == mooddays.get(i).date_id) {
-            //    Log.d("TAG", mooddays.get(i).date_id + " " + mooddays.get(i).score + " " + mooddays.get(i).diary);
             addTableRow(weighttable, weightdays.get(i));
-            //}
         }
 
         addWeight.setOnClickListener(new View.OnClickListener() {
@@ -406,7 +399,6 @@ public class mem_body_weight extends Fragment {
         weighttable = (TableLayout) getActivity().findViewById(R.id.weight_daytable);
         addWeight=(Button)getView().findViewById(R.id.addWeightDay);
 
-        //fromDateEtxt = (EditText) getView().findViewById(R.id.EditTextDate);
     }
 
     private void setDateField() {
@@ -445,10 +437,7 @@ public class mem_body_weight extends Fragment {
         weightdays.clear();
         weightdays=CancerDatabase.getInMemoryDatabase(getContext()).weightTimeDao().getAllWeightTime();
         for (int i = 0; i <weightdays.size(); i++) {
-            //if(Integer.parseInt(datedbFormatter.format(currentDateView)) == mooddays.get(i).date_id) {
-            //    Log.d("TAG", mooddays.get(i).date_id + " " + mooddays.get(i).score + " " + mooddays.get(i).diary);
             addTableRow(weighttable, weightdays.get(i));
-            //}
         }
     }
 

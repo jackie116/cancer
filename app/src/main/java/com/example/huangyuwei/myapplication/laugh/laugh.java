@@ -48,10 +48,8 @@ public class laugh extends AppCompatActivity {
                 case 2:
                     fragment = new laugh_night();
                     break;
+
                 case 3:
-                    fragment = new laugh_family();
-                    break;
-                case 4:
                     fragment = new laugh_fashion();
                     break;
             }
@@ -61,7 +59,7 @@ public class laugh extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            return 4;
         }
 
         @Override
@@ -73,10 +71,9 @@ public class laugh extends AppCompatActivity {
                     return "音樂饗宴";
                 case 2:
                     return "一夜好眠";
+
                 case 3:
-                    return "家人態度";
-                case 4:
-                    return "時尚";
+                    return "時尚自信";
                 default:
                     return null;
             }
