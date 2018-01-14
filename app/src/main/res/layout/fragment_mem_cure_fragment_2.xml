@@ -4,10 +4,122 @@
     android:layout_height="match_parent"
     tools:context="com.example.huangyuwei.myapplication.mem.mem_cure_fragment_2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="___2" />
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Put form controls here-->
+
+            <Button
+                android:id="@+id/add_c_p"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendFeedback"
+                android:text="新增"></Button>
+
+            <TableLayout
+                android:id="@+id/c_p_daytable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/row_shape">
+
+                <TableRow
+                    android:id="@+id/c_p_dayrow_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/c_p_day_label"
+                            android:layout_width="382dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/north_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text=""
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/c_c_time_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/c_b_cure"
+                            android:layout_width="130dp"
+                            android:layout_height="30dp"
+                            android:layout_span="2"
+                            android:background="@drawable/top_shape"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:scrollHorizontally="false"
+                            android:text="部位"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/c_b_start"
+                            android:layout_width="125dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_toEndOf="@+id/c_b_cure"
+                            android:layout_toRightOf="@+id/c_b_cure"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="開始日期"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/c_p_end"
+                            android:layout_width="120dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_toEndOf="@+id/c_b_start"
+                            android:layout_toRightOf="@+id/c_b_start"
+                            android:background="@drawable/top_shape"
+                            android:ems="10"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="5dp"
+                            android:text="結束日期"
+                            android:textAlignment="center" />
+
+
+                    </RelativeLayout>
+                </TableRow>
+
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
+
