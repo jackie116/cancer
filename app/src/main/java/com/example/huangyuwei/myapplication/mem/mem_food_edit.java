@@ -48,7 +48,7 @@ public class mem_food_edit extends Fragment{
     private SimpleDateFormat datedbFormatter;
     private SimpleDateFormat timeFormatter;
     private SimpleDateFormat timedbFormatter;
-    private Button saveFood;
+    //private Button saveFood;
     private Button addFood;
     private Date currentDateView;
     private List<FoodTime> fooddays;
@@ -128,9 +128,7 @@ public class mem_food_edit extends Fragment{
                         Date timedb = Calendar.getInstance().getTime(); //initialize
                         try {
                             timedb = timeFormatter.parse(time);
-                        } catch (ParseException e){
-
-                        }
+                        } catch (ParseException e){ }
 
 
                         String timeindb=timedbFormatter.format(timedb);
